@@ -290,11 +290,11 @@
 						</div>
 					</div>
 
-					<div class="col-md-12">
+					<!-- <div class="col-md-12">
 						<h3 class="judul-card-atas"><i class="fa-solid fa-chart-line"></i> &nbsp;&nbsp; Dashboard Kesehatan</h3>
 						<div class="box box-solid">
 							<div class="box-body">
-								<!-- <div class="col-md-3">
+								<div class="col-md-3">
 									<div class="dashboard-kesehatan">
 										<a href="https://dinkes.jakarta.go.id/stuntingjakarta/dashboard/stunting" target="_blank">
 											<div class="body-card-dash">
@@ -307,8 +307,8 @@
 											</p>
 										</a>
 									</div>
-								</div> -->
-								<!-- <div class="col-md-3">
+								</div>
+								<div class="col-md-3">
 									<div class="dashboard-kesehatan">
 										<a href="https://dashboard-dinkes.jakarta.go.id/agd" target="_blank">
 											<div class="body-card-dash">
@@ -321,8 +321,8 @@
 											</p>
 										</a>
 									</div>
-								</div> -->
-								<!-- <div class="col-md-3">
+								</div>
+								<div class="col-md-3">
 									<div class="dashboard-kesehatan">
 										<a href="https://dashboard-dinkes.jakarta.go.id/puskesmas" target="_blank">
 											<div class="body-card-dash">
@@ -334,8 +334,8 @@
 											</p>
 										</a>
 									</div>
-								</div> -->
-								<!-- <div class="col-md-3">
+								</div>
+								<div class="col-md-3">
 									<div class="dashboard-kesehatan">
 										<a href="https://dashboard-dinkes.jakarta.go.id/rsud" target="_blank">
 											<div class="body-card-dash">
@@ -347,13 +347,13 @@
 											</p>
 										</a>
 									</div>
-								</div> -->
+								</div>
 							</div>
 							<div class="box-footer text-center">
 								<a href="#" target="_blank" class="btn btn-warning">Lainnya</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<!-- list UPT -->
 					<div class="col-md-12">
