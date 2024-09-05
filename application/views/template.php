@@ -85,7 +85,7 @@
 
         <!-- logo for regular state and mobile devices START -->
         <span class="logo-lg">
-          <img src="<?= logo(); ?>" height="50px" />
+          <img src="<?= logo(); ?>" height="40px" />
         </span>
         <!-- logo for regular state and mobile devices END -->
       </a>

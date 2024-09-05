@@ -5,7 +5,7 @@ table, th, td {
 }
 </style>
 <br><br>
-<h2 style="text-align: center;font-family: Calibri;font-size: 35px">PEJABAT PENGELOLA INFORMASI DAN DOKUMENTASI<br>DINAS KESEHATAN PROVINSI DKI JAKARTA</h2>
+<h2 style="text-align: center;font-family: Calibri;font-size: 35px">PEJABAT PENGELOLA INFORMASI DAN DOKUMENTASI<br>RSUD SAWAH BESAR</h2>
 <h2 style="text-align: center;font-family: Calibri;font-size: 30px">REKAP FORMULIR PERMOHONAN INFORMASI (ONLINE)</h2>
 <br><br>
 <table cellspacing="0" cellpadding="2" >

@@ -135,8 +135,8 @@
 
 <div class="logo-dinkes-bounce">
 	<div id="iconhut">
-		<a href="https://dinkes.jakarta.go.id/" target="_blank">
-			<img id="seventyfive" src="<?= site_url('upload/image/dinkes.png') ?>">
+		<a href="http://rsudsawahbesar.jakarta.go.id/" target="_blank">
+			<img id="seventyfive" src="<?= site_url('upload/image/sabes.png') ?>">
 		</a>
 	</div>
 	<div style="position:fixed; left:1.2vw; top:3.8vw; z-index:99;">
@@ -160,13 +160,13 @@
 		<ol class="carousel-indicators">
 			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 			<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-			<!-- <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
 			<li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
-			<li data-target="#carousel-example-generic" data-slide-to="4" class=""></li> -->
+			<li data-target="#carousel-example-generic" data-slide-to="4" class=""></li>
 		</ol>
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="<?= site_url('upload/image/banner/Banner Web Dinkes-01.jpg') ?>" alt="PPID Dinkes DKI">
+				<img src="<?= site_url('upload/image/banner sabes/ppid sabes-1.png') ?>" alt="PPID RSUD SAWAH BESAR">
 			</div>
 			<!-- <div class="item">
 				<img src="
@@ -175,29 +175,32 @@
 				?>
 				" alt="Second slide">
 			</div> -->
-			<!-- <div class="item">
-				<img src="<?= site_url('upload/image/banner/Banner Web Dinkes-07.jpg') ?>" alt="Second slide">
-			</div>
 			<div class="item">
-				<a href="https://ppid-dinkes.jakarta.go.id/alamat-ukpd-upt" target="_blank">
-					<img src="<?= site_url('upload/image/banner/Banner Web Dinkes-02.jpg') ?>" alt="Fourth slide">
+				<a href="<?= base_url() . 'login' ?>" target="_blank">
+					<img src="<?= site_url('upload/image/banner sabes/ppid sabes-2.png') ?>" alt="Second slide">
 				</a>
 			</div>
 			<div class="item">
+				<!-- <a href="https://ppid-dinkes.jakarta.go.id/alamat-ukpd-upt" target="_blank"> -->
+				<a href="#" target="_blank">
+					<img src="<?= site_url('upload/image/banner sabes/ppid sabes-3.png') ?>" alt="Fourth slide">
+				</a>
+			</div>
+			<!-- <div class="item">
 				<a href="https://ppid-dinkes.jakarta.go.id/berita_informasi_kesehatan" target="_blank">
-					<img src="<?= site_url('upload/image/banner/Banner Web Dinkes-04.jpg') ?>" alt="Fourth slide">
+					<img src="<?= site_url('upload/image/banner sabes/ppid sabes-1.png') ?>" alt="Fourth slide">
 				</a>
 			</div> -->
 			<div class="item jaksehat">
-				<a href="https://dinkes.jakarta.go.id/jaksehatweb">
-					<img src="<?= site_url('upload/image/banner/Banner Web Dinkes-05.jpg') ?>" alt="Third slide">
+				<a href="https://dinkes.jakarta.go.id/jaksehatweb" target="_blank">
+					<img src="<?= site_url('upload/image/banner sabes/ppid sabes-4.png') ?>" alt="Third slide">
 				</a>
 			</div>
-			<!-- <div class="item">
-				<a href="<?= base_url() . 'login' ?>" target="_blank">
-					<img src="<?= site_url('upload/image/banner/Banner Web Dinkes-03.jpg') ?>" alt="Fourth slide">
-				</a>
-			</div> -->
+			<div class="item">
+				<!-- <a href="<?= base_url() . 'login' ?>" target="_blank"> -->
+					<img src="<?= site_url('upload/image/banner sabes/ppid sabes-5.png') ?>" alt="Fourth slide">
+				<!-- </a> -->
+			</div>
 		</div>
 		<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
 			<span class="fa fa-angle-left"></span>

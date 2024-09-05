@@ -4,7 +4,7 @@
     }
 </style>
 <br><br>
-<h2 style="text-align: center;font-family: Calibri;font-size: 40px">PEJABAT PENGELOLA INFORMASI DAN DOKUMENTASI<br>DINAS KESEHATAN PROVINSI DKI JAKARTA</h2>
+<h2 style="text-align: center;font-family: Calibri;font-size: 40px">PEJABAT PENGELOLA INFORMASI DAN DOKUMENTASI<br>RSUD SAWAH BESAR</h2>
 <h2 style="text-align: center;font-family: Calibri;font-size: 38px">FORMULIR PERMOHONAN INFORMASI (ONLINE)</h2>
 <!--<p style="text-align: center;font-family: Calibri;font-size: 30px">No. Pendaftaran : <?= date("Y") . sprintf("%05d", $formulir->Nomor) ?></p>-->
 <p style="text-align: center;font-family: Calibri;font-size: 30px">No. Pendaftaran : <?= $formulir->Nomor ?></p>

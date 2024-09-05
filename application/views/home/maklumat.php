@@ -10,11 +10,11 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <strong>PPID Dinas Kesehatan Provinsi DKI Jakarta berupaya memberikan pelayanan informasi publik dan berkomitmen untuk :</strong>
+                        <strong>PPID RSUD Sawah Besar berupaya memberikan pelayanan informasi publik dan berkomitmen untuk :</strong>
 
                         <p class="text-muted">
                         <ol>
-                            <li>Memberikan pelayanan informasi yang prima berdasarkan Undang‐Undang No 14 Tahun 2008 tentang Keterbukaan Informasi Publik dan juga turut mewujudkan misi Pemerintah Provinsi DKI Jakarta yang berorientasi pada pelayanan publik;</li>
+                            <li>Memberikan pelayanan informasi yang prima berdasarkan Undang-Undang No 14 Tahun 2008 tentang Keterbukaan Informasi Publik dan juga turut mewujudkan misi Pemerintah Provinsi DKI Jakarta yang berorientasi pada pelayanan publik;</li>
                             <li>Memberikan kemudahan kepada publik dalam mendapatkan informasi yang diperlukan dengan murah dan sederhana;</li>
                             <li>Menyediakan dan memberikan informasi publik yang dikuasai secara akurat, benar dan tidak menyesatkan;</li>
                             <li>Menyediakan daftar informasi publik untuk informasi yang wajib disediakan dan diumumkan;</li>

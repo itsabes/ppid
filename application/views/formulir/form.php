@@ -92,7 +92,7 @@
                                     <br>
                                     <span class="text-danger">*Surat Permohonan KOP Instansi/Organisasi/Perguruan Tinggi/Sekolah</span>
                                     <br>
-                                    <span class="text-danger">*Dipastikan Surat Permohonan ditujukan ke PPID Dinas Kesehatan<br>Provinsi DKI Jakarta</span>
+                                    <span class="text-danger">*Dipastikan Surat Permohonan ditujukan ke PPID RSUD Sawah Besar</span>
                                     <br>
                                     <input type="file" name="UploadPermohonan" class="form-control" id="UploadPermohonan" <?php if ($TujuanInformasi == 'Bertujuan untuk Penelitian') echo 'required'; ?>>
 

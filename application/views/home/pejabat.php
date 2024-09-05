@@ -45,25 +45,25 @@
                                 <!-- Profile Image -->
                                 <div class="box box-solid">
                                     <div class="box-body box-profile">
-                                        <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/ibu-kepala.JPG') ?>" alt="User profile picture">
+                                        <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/direktur.JPG') ?>" alt="User profile picture">
 
-                                        <h3 class="profile-username text-center">drg. Ani Ruspitawati, M.M</h3>
+                                        <h3 class="profile-username text-center">dr. Herni Lestyaningsih, MARS</h3>
 
-                                        <p class="text-muted text-center">Kepala Dinas Kesehatan</p>
+                                        <p class="text-muted text-center">Direktur RSUD Sawah Besar</p>
 
                                         <ul class="list-group list-group-unbordered">
                                             <li class="list-group-item">
-                                                <b>Nama</b> <a class="pull-right">drg. Ani Ruspitawati, M.M</a>
+                                                <b>Nama</b> <a class="pull-right">dr. Herni Lestyaningsih, MARS</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Lumajang, 08-05-1967</a>
+                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Jakarta, 16-03-1975</a>
                                             </li>
                                             <!-- <li class="list-group-item">
                                                 <b>Agama</b> <a class="pull-right">Islam</a>
                                             </li> -->
                                         </ul>
 
-                                        <button onclick="showClick('kadis')" type="button" class="btn btn-primary btn-block">Selengkapnya</button>
+                                        <button onclick="showClick('direktur')" type="button" class="btn btn-primary btn-block">Selengkapnya</button>
                                     </div>
                                     <!-- /.box-body -->
                                 </div>
@@ -75,25 +75,25 @@
                                 <!-- Profile Image -->
                                 <div class="box box-solid">
                                     <div class="box-body box-profile">
-                                        <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/ibu-waka.jpg') ?>" alt="User profile picture">
+                                        <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/yanmed.JPG') ?>" alt="User profile picture">
 
-                                        <h3 class="profile-username text-center">dr. Dwi Oktavia TLH, M.Epid</h3>
+                                        <h3 class="profile-username text-center">dr. Finan Setianto Santana</h3>
 
-                                        <p class="text-muted text-center">Wakil Kepala Dinas</p>
+                                        <p class="text-muted text-center">Kepala Seksi Pelayanan Medis</p>
 
                                         <ul class="list-group list-group-unbordered">
                                             <li class="list-group-item">
-                                                <b>Nama</b> <a class="pull-right">dr. Dwi Oktavia TLH, M.Epid</a>
+                                                <b>Nama</b> <a class="pull-right">dr. Finan Setianto Santana</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Jakarta, 02-10-1973</a>
+                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Jakarta, 25-03-1983</a>
                                             </li>
                                             <!-- <li class="list-group-item">
                                                 <b>Agama</b> <a class="pull-right">Islam</a>
                                             </li> -->
                                         </ul>
 
-                                        <button onclick="showClick('wakadis')" type="button" class="btn btn-primary btn-block">Selengkapnya</button>
+                                        <button onclick="showClick('yanmed')" type="button" class="btn btn-primary btn-block">Selengkapnya</button>
                                     </div>
                                     <!-- /.box-body -->
                                 </div>
@@ -105,24 +105,24 @@
                                 <!-- Profile Image -->
                                 <div class="box box-solid">
                                     <div class="box-body box-profile">
-                                        <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/ibu-sekdis.jpg') ?>" alt="User profile picture">
+                                        <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/penunjang.png') ?>" alt="User profile picture">
 
-                                        <h3 class="profile-username text-center">drg. Nuniek Ria Sundari, MARS</h3>
+                                        <h3 class="profile-username text-center">Indra, Apt</h3>
 
-                                        <p class="text-muted text-center">Sekretaris Dinas Kesehatan</p>
+                                        <p class="text-muted text-center">Kepala Seksi Penunjang</p>
 
                                         <ul class="list-group list-group-unbordered">
                                             <li class="list-group-item">
-                                                <b>Nama</b> <a class="pull-right">drg. Nuniek Ria Sundari, MARS</a>
+                                                <b>Nama</b> <a class="pull-right">Indra, Apt</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Jakarta, 26-07-1980</a>
+                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Bukittinggi, 26-12-1978</a>
                                             </li>
                                             <!-- <li class="list-group-item">
                                                 <b>Agama</b> <a class="pull-right">Islam</a>
                                             </li> -->
                                         </ul>
-                                        <button onclick="showClick('sekdis')" type="button" class="btn btn-primary btn-block">Selengkapnya</button>
+                                        <button onclick="showClick('penunjang')" type="button" class="btn btn-primary btn-block">Selengkapnya</button>
                                     </div>
                                     <!-- /.box-body -->
                                 </div>
@@ -171,12 +171,12 @@
     //$('#data_pembbu').load('<?php echo base_url(); ?>belanja/ambil_data_outlet_session');
 
     function showClick(pos) {
-        if (pos == 'kadis') {
-            filepath = 'Biodata-Kadis.pdf';
-        } else if (pos == 'wakadis') {
-            filepath = 'Biodata-Wakadis.pdf';
-        } else if (pos == 'sekdis') {
-            filepath = 'Biodata-Sekdis.pdf';
+        if (pos == 'direktur') {
+            filepath = 'Biodata-Direktur(dr.Herni).pdf';
+        } else if (pos == 'yanmed') {
+            filepath = 'Biodata-Kayanmed (dr.Finan).pdf';
+        } else if (pos == 'penunjang') {
+            filepath = 'Biodata-Kayanjang (indra, Apt).pdf';
         }
 
         $('#fileup').attr('src', "<?php echo base_url() . 'upload/dokumen/'; ?>" + filepath);

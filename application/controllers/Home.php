@@ -94,6 +94,11 @@ class Home extends CI_Controller
         $this->template->load('template2', 'home/sosialisasi');
     }
 
+    public function maklumat()
+    {
+        $this->template->load('template2', 'home/maklumat');
+    }
+
     public function upt()
     {
         $website_ppid   = $this->Unitkerja_model->get_jenis('Rumah Sehat Jakarta');
