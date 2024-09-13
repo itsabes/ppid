@@ -78,7 +78,7 @@ class PermohonanInformasi extends CI_Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->baseUrlProd . '/api/permohonan-wilayah/insert-permohonan',
+            CURLOPT_URL => $this->baseUrlDev . '/api/permohonan-wilayah/insert-permohonan',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -137,7 +137,7 @@ class PermohonanInformasi extends CI_Controller
         ];
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->baseUrlProd . '/api/permohonan-wilayah/cek-history-permohonan',
+            CURLOPT_URL => $this->baseUrlDev . '/api/permohonan-wilayah/cek-history-permohonan',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

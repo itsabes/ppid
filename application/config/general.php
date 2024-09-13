@@ -13,4 +13,4 @@ $config['smtp_port'] = 25;
 $config['nama_pengirim'] = 'xxxxx'; // exmp : PPID Dinkes DKI Jakarta
 $config['ssl'] = 0; // isi 0 jika menggunakan email .go.id, isi 1 jika menggunakan gmail
 
-$config['id_skpd_ppid_pemprov'] = 'xxxx'; // integer
+$config['id_skpd_ppid_pemprov'] = '3818'; // integer

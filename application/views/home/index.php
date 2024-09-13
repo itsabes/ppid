@@ -249,7 +249,7 @@
 						<div class="col-md-3">
 							<div class="small-box box-pengaduan-tambah" style="background: #bc3c42;">
 								<div class="inner">
-									<a href="https://ppid-dinkes.jakarta.go.id/daftar-informasi-publik" target="_blank">
+									<a href="<?= base_url() . 'daftar-informasi-publik' ?>" target="_blank">
 										<i class="fa-solid fa-list"></i>
 										<p class="text-center">Daftar <br>Informasi Publik</p>
 									</a>
@@ -261,7 +261,7 @@
 						<div class="col-md-3">
 							<div class="small-box bg-purple box-pengaduan-tambah">
 								<div class="inner">
-									<a href="https://ppid.jakarta.go.id/kanal-pengaduan-resmi" target="_blank">
+									<a href="<?= base_url() . 'kanal-pengaduan-resmi' ?>" target="_blank">
 										<i class="fa-solid fa-headset"></i>
 										<p class="text-center">Kanal Pengaduan <br>Resmi</p>
 									</a>
