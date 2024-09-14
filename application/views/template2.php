@@ -607,9 +607,10 @@
 
 	</div><!-- ./wrapper -->
 
+	<!-- jQuery -->
+	<script src="<?= base_url();?>assets/plugins/jquery/jquery.min.js"></script>
 	<!-- jQuery UI 1.11.4 -->
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<!-- <script src="<?= base_url(); ?>assets/js/jquery-ui-1.14.0/jquery-ui.min.js"></script> -->
+	<script src="<?= base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 	<script>
 		$.widget.bridge('uibutton', $.ui.button);
