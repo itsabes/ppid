@@ -817,7 +817,7 @@ class Content extends CI_Controller
         date_default_timezone_set('Asia/Bangkok');
 
         $content        = $this->Content_model->get_by_id($IdContent);
-        $link           = $content->UrlLink;
+        $link           = base_url().$content->UrlLink;
 
         $data = array(
             'IdContent'     => $content->IdContent,

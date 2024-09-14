@@ -119,3 +119,5 @@ $route['form_permohonan_informasi'] = 'permohonaninformasi'; // Form Permohonan 
 $route['cek_status_informasi'] = 'permohonaninformasi/cekStatus'; // Form Cek Permohonan Informasi Publik (API KE PPID PEMPROV)
 
 $route['alamat-ukpd-upt'] = 'unitkerja/index'; // Alamat UKPD dan UPT
+
+$route['tugas-fungsi-RSUD'] = 'content/publish/1160'; // Alamat UKPD dan UPT

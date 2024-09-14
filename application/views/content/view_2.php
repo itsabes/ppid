@@ -83,7 +83,7 @@
                                         <td><?= $content->JangkaWaktu ?></td>
                                         <td>
                                             <?php if ($content->JenisMedia != 'Tersedia di masing-masing Bidang') { ?>
-                                                <a href="<?= $content->JenisMedia ?>" target="_blank"><?= $content->JenisMedia ?></a>
+                                                <a href="<?= $content->UrlLink ?>" target="_blank"><?= $content->JenisMedia ?></a>
                                             <?php } else { ?>
                                                 Tersedia di masing-masing Bidang
                                             <?php } ?>
@@ -122,7 +122,7 @@
                                         <td><?= $content->JangkaWaktu ?></td>
                                         <td>
                                             <?php if ($content->JenisMedia != 'Tersedia di masing-masing Bidang') { ?>
-                                                <a href="<?= $content->JenisMedia ?>" target="_blank"><?= $content->JenisMedia ?></a>
+                                                <a href="<?= $content->UrlLink ?>" target="_blank"><?= $content->JenisMedia ?></a>
                                             <?php } else { ?>
                                                 Tersedia di masing-masing Bidang
                                             <?php } ?>
@@ -160,7 +160,7 @@
                                         <td><?= $content->BentukInformasi ?></td>
                                         <td><?= $content->JangkaWaktu ?></td>
                                         <td><?php if ($content->JenisMedia != 'Tersedia di masing-masing Bidang') { ?>
-                                                <a href="<?= $content->JenisMedia ?>" target="_blank"><?= $content->JenisMedia ?></a>
+                                                <a href="<?= $content->UrlLink ?>" target="_blank"><?= $content->JenisMedia ?></a>
                                             <?php } else { ?>
                                                 Tersedia di masing-masing Bidang
                                             <?php } ?>

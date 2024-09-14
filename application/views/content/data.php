@@ -85,7 +85,7 @@
                                                 );
                                             } else {
                                                 echo anchor(
-                                                    site_url('upload/content/' . $content->FileUpload),
+                                                    site_url('upload/content/' . $content->UrlLink),
                                                     '<i class="fa fa-file-pdf-o"></i>',
                                                     'title="Preview File" target="_blank" class="btn btn-info btn-xs"'
                                                 );
