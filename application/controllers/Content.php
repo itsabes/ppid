@@ -494,6 +494,9 @@ class Content extends CI_Controller
 
         $post       = $this->input->post();
 
+        // print_r($_FILES['FileUpload']['name']);
+        // exit();
+
         if (isset($post['IsiContent'])) {
             $data['IsiContent'] = $post['IsiContent'];
         }
@@ -502,14 +505,19 @@ class Content extends CI_Controller
             $data['BulanData']  = $post['BulanData'];
         }
 
+        $file_name = str_replace(' ','_',$_FILES['FileUpload']['name']);
+        // print_r($file_name);
+        // exit();
         $data['JudulContent']   = $post['JudulContent'];
         $data['TahunData']      = $post['TahunData'];
         $data['Tipe']           = $post['Tipe'];
-        $data['FileUpload']     = $post['FileUpload'];
+        $data['FileUpload']     = $file_name;
         $data['UpdateDate']     = date("Y-m-d H:i:sa");
         $data['UpdateUser']     = $this->access->get_uid();
         $data['IsActive']       = 1;
 
+        // print_r($data);
+        // exit();
         //upload config 
         if ($post['Tipe'] == 7) {
             $config['upload_path']      = './upload/skdr/';
@@ -520,6 +528,8 @@ class Content extends CI_Controller
         $config['max_size']         = '0';
         $config['max_width']        = '0';
         $config['max_height']       = '0';
+        // $config['file_name'] = url_title($this->input->post('FileUpload'));
+        // $this->upload->initialize($config);
 
         $this->load->library('upload', $config);
         $this->load->library('image_lib');
@@ -534,12 +544,17 @@ class Content extends CI_Controller
 
             $upl_data       = $up_data1['file_name'];
         } else {
+            // $error = array('error' => $this->upload->display_errors());
+            // print_r($error);
+            
             $upl_data       = "";
         }
+        // exit();
 
         if ($upl_data == "") {
         } else {
             $data['FileUpload']     = $upl_data;
+            $data['UrlLink']     = $upl_data;
             $data['IsUpload']       = 1;
         }
 
@@ -550,6 +565,7 @@ class Content extends CI_Controller
             $this->db->insert('content', $data);
             echo json_encode(['status' => true, 'msg' => 'Stored']);
         }
+        redirect('content/data/'.$data['Tipe']);
     }
 
     // GET EDIT DATA

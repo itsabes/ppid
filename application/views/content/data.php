@@ -119,7 +119,8 @@
                 <h3 class="modal-title">Form</h3>
             </div>
             <div class="modal-body">
-                <form id="frm">
+                <!-- <form id="frm" method="post" role="form" enctype="multipart/form-data" action="<?= base_url();'content/store_data' ?>" onsubmit="return checkForm(this)"> -->
+                <form method="post" name="myForm" id="myForm" class="form-horizontal" role="form" action="<?= base_url();?>content/store_data" onsubmit="return checkForm(this)" enctype="multipart/form-data">
                     <input type="hidden" name="row_id" id="id">
                     <table class="table">
                         <tr>
@@ -213,12 +214,15 @@
                             </td>
                         </tr>
                     </table>
+                
+
+                    <div class="modal-footer">
+                        <a href="#" data-dismiss="modal" class="btn btn-md btn-default pull-left"><i class="fa fa-arrow-left"></i> &nbsp;&nbsp;KEMBALI</a>
+                        <!-- <a href="javascript:void(0)" onclick="submitDocClick()" class="btn btn-md btn-primary float-right" id="upload"><i class="fa fa-check"></i> &nbsp;&nbsp;SIMPAN</a> -->
+                        <button type="submit" onclick="return confirm('Apakah Anda yakin akan menyimpan data ?');" class="btn btn-md btn-primary float-right" style=" font-size: 15px;"><i class="fa fa-check"></i> &nbsp;&nbsp;SIMPAN</button>
+                        <a href="javascript:void(0)" onclick="deleteDocClick()" class="btn btn-md btn-danger float-right" id="delete"><i class="fa fa-trash"></i> &nbsp;&nbsp;HAPUS</a>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <a href="#" data-dismiss="modal" class="btn btn-md btn-default pull-left"><i class="fa fa-arrow-left"></i> &nbsp;&nbsp;KEMBALI</a>
-                <a href="javascript:void(0)" onclick="submitDocClick()" class="btn btn-md btn-primary float-right" id="upload"><i class="fa fa-check"></i> &nbsp;&nbsp;SIMPAN</a>
-                <a href="javascript:void(0)" onclick="deleteDocClick()" class="btn btn-md btn-danger float-right" id="delete"><i class="fa fa-trash"></i> &nbsp;&nbsp;HAPUS</a>
             </div>
         </div>
     </div>
