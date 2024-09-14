@@ -13,7 +13,7 @@
                         <strong><i class="fa fa-calendar margin-r-5"></i>Waktu Pelayanan Informasi Publik</strong>
 
                         <p class="text-muted">
-                            Senin - Jum'at : 08:00 WIB s/d 16:00 WIB<br><br>
+                            Senin - Kamis : 08:00 WIB s/d 16:00 WIB<br>Jum'at : 08:00 WIB s/d 16:30 WIB<br><br>
                         <table>
                             <tr>
                                 <td>Istirahat</td>

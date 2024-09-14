@@ -79,7 +79,7 @@
 
                                             if ($tipe == 7) {
                                                 echo anchor(
-                                                    site_url('upload/skdr/' . $content->FileUpload),
+                                                    site_url('upload/skdr/' . $content->UrlLink),
                                                     '<i class="fa fa-file-pdf-o"></i>',
                                                     'title="Preview File" target="_blank" class="btn btn-info btn-xs"'
                                                 );
