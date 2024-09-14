@@ -106,7 +106,7 @@ $route['rencana-kerja-anggaran'] = 'content/publish_data/56'; // Rencana Kerja A
 $route['dokumen-pelaksanaan-anggaran'] = 'content/publish_data/57'; // Dokumen Pelaksanaan Anggaran
 $route['nilai-anggaran'] = 'content/publish_data/58'; // Nilai Anggaran
 $route['informasi-keuangan-covid19'] = 'content/publish_data/59'; // Informasi Keuangan Covid19
-// $route['statistik-permohonan-informasi'] = 'content/publish_data/59'; // Informasi Keuangan Covid19
+$route['statistik-permohonan-informasi'] = 'content/publish_data/42'; // Informasi Keuangan Covid19
 $route['laporan-aduan-masyarakat'] = 'content/publish_data/60'; // Laporan Aduan Masyarakat
 $route['DIPA-RKA-KL'] = 'content/publish_data/61'; // Laporan Aduan Masyarakat
 
