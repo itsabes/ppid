@@ -517,7 +517,7 @@ class Content extends CI_Controller
             $config['upload_path']      = './upload/content/';
         }
         $config['allowed_types']    = 'jpeg|jpg|png|pdf|xls|xlsx|doc|docx';
-        $config['max_size']         = '0';
+        $config['max_size']         = '2097152';
         $config['max_width']        = '0';
         $config['max_height']       = '0';
 
