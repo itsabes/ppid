@@ -10,7 +10,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <img alt="kanal layanan informasi" src="https://ppid-dinkes.jakarta.go.id/upload/image/kanal-layanan-informasi.jpeg" width="100%">
+                    <img alt="kanal layanan informasi" src="<?= site_url('upload/image/kanal informasi RSUD Sabes.png') ?>" width="100%">
                 </div>
                 <!-- /.box-body -->
             </div>

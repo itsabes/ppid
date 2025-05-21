@@ -12,74 +12,36 @@
                             <div class="col-md-3">
                                 <div class="box box-default">
                                     <div class="box-body">
-                                        <img src="<?php echo site_url('upload/image/1.jpg') ?>" width="100%">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/Alasan Pengajuan Keberatan.png') ?>" width="100%">
                                     </div>
-                                    <button class="btn btn-info btn-block" onclick="showClick('1.jpg')">Lihat</button>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Alasan Pengajuan Keberatan.png')">Lihat</button>
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="box box-default">
                                     <div class="box-body">
-                                        <img src="<?php echo site_url('upload/image/2.jpg') ?>" width="100%">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/DPA.png') ?>" width="100%">
                                     </div>
-                                    <button class="btn btn-info btn-block" onclick="showClick('2.jpg')">Lihat</button>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/DPA.png')">Lihat</button>
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="box box-default">
                                     <div class="box-body">
-                                        <img src="<?php echo site_url('upload/image/3.jpg') ?>" width="100%">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/Informasi Berkala.png') ?>" width="100%">
                                     </div>
-                                    <button class="btn btn-info btn-block" onclick="showClick('3.jpg')">Lihat</button>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Informasi Berkala.png')">Lihat</button>
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="box box-default">
                                     <div class="box-body">
-                                        <img src="<?php echo site_url('upload/image/4.jpg') ?>" width="100%">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/Informasi PPID.png') ?>" width="100%">
                                     </div>
-                                    <button class="btn btn-info btn-block" onclick="showClick('4.jpg')">Lihat</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="box box-default">
-                                    <div class="box-body">
-                                        <img src="<?php echo site_url('upload/image/5.jpg') ?>" width="100%">
-                                    </div>
-                                    <button class="btn btn-info btn-block" onclick="showClick('5.jpg')">Lihat</button>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="box box-default">
-                                    <div class="box-body">
-                                        <img src="<?php echo site_url('upload/image/DIPA PPID-01.jpg') ?>" width="100%">
-                                    </div>
-                                    <button class="btn btn-info btn-block" onclick="showClick('DIPA PPID-01.jpg')">Lihat</button>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="box box-default">
-                                    <div class="box-body">
-                                        <img src="<?php echo site_url('upload/image/Realisasi Anggaran Dinas Kesehatan Tahun 2022 -01.jpg') ?>" width="100%">
-                                    </div>
-                                    <button class="btn btn-info btn-block" onclick="showClick('Realisasi Anggaran Dinas Kesehatan Tahun 2022 -01.jpg')">Lihat</button>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="box box-default">
-                                    <div class="box-body">
-                                        <img src="<?php echo site_url('upload/image/informasi-ppid.jpeg') ?>" width="100%">
-                                    </div>
-                                    <button class="btn btn-info btn-block" onclick="showClick('informasi-ppid.jpeg')">Lihat</button>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Informasi PPID.png')">Lihat</button>
                                 </div>
                             </div>
                         </div>
@@ -88,27 +50,112 @@
                             <div class="col-md-3">
                                 <div class="box box-default">
                                     <div class="box-body">
-                                        <img src="<?php echo site_url('upload/image/prosedur-permohonan.jpeg') ?>" width="100%">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/Informasi Setiap Saat.png') ?>" width="100%">
                                     </div>
-                                    <button class="btn btn-info btn-block" onclick="showClick('prosedur-permohonan.jpeg')">Lihat</button>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Informasi Setiap Saat.png')">Lihat</button>
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="box box-default">
                                     <div class="box-body">
-                                        <img src="<?php echo site_url('upload/image/prosedur-keberatan.jpeg') ?>" width="100%">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/Kewenangan PPID.png') ?>" width="100%">
                                     </div>
-                                    <button class="btn btn-info btn-block" onclick="showClick('prosedur-keberatan.jpeg')">Lihat</button>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Kewenangan PPID.png')">Lihat</button>
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="box box-default">
                                     <div class="box-body">
-                                        <img src="<?php echo site_url('upload/image/kanal-info-PPID-01.jpg') ?>" width="100%">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/Maklumat PPID.png') ?>" width="100%">
                                     </div>
-                                    <button class="btn btn-info btn-block" onclick="showClick('kanal-info-PPID-01.jpg')">Lihat</button>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Maklumat PPID.png')">Lihat</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="box box-default">
+                                    <div class="box-body">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/Pelayanan Informasi Publik.png') ?>" width="100%">
+                                    </div>
+                                    <button class="btn btn-info btn-block" onclick="showClick('Pelayanan Informasi Publik.png')">Lihat</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="box box-default">
+                                    <div class="box-body">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/Permohonan penyelesaian Sengketa.png') ?>" width="100%">
+                                    </div>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Permohonan penyelesaian Sengketa.png')">Lihat</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="box box-default">
+                                    <div class="box-body">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/Prosedur Pengajuan Keberatan Informasi Publik.png') ?>" width="100%">
+                                    </div>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Prosedur Pengajuan Keberatan Informasi Publik.png')">Lihat</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="box box-default">
+                                    <div class="box-body">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/prosedur pengajuan keberatan.png') ?>" width="100%">
+                                    </div>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/prosedur pengajuan keberatan.png')">Lihat</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="box box-default">
+                                    <div class="box-body">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/prosedur permohonan Informasi Publik.png') ?>" width="100%">
+                                    </div>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/prosedur permohonan Informasi Publik.png')">Lihat</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="box box-default">
+                                    <div class="box-body">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/Realisasi Anggaran.png') ?>" width="100%">
+                                    </div>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Realisasi Anggaran.png')">Lihat</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="box box-default">
+                                    <div class="box-body">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/Tata Cara Pengaduan Penyalahgunaan Wewenang.png') ?>" width="100%">
+                                    </div>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Tata Cara Pengaduan Penyalahgunaan Wewenang.png')">Lihat</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="box box-default">
+                                    <div class="box-body">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/Tugas dan Fungsi PPID.png') ?>" width="100%">
+                                    </div>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Tugas dan Fungsi PPID.png')">Lihat</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="box box-default">
+                                    <div class="box-body">
+                                        <img src="<?= site_url('upload/image/INFOGRAFIS PPID/VISI & MISI PPID.png') ?>" width="100%">
+                                    </div>
+                                    <button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/VISI & MISI PPID.png')">Lihat</button>
                                 </div>
                             </div>
                         </div>

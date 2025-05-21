@@ -477,57 +477,57 @@
 						<h3 class="judul-card-atas"><i class="fa-solid fa-image"></i>&nbsp;&nbsp; Infografis</h3>
 						<div class="box box-solid">
 							<div class="box-body">
-								<!-- <div class="col-md-3">
+								<div class="col-md-3">
 									<div class="box box-default">
 										<div class="box-body">
-											<img src="<?= site_url('upload/image/DIPA PPID-01.jpg') ?>" width="100%">
+											<img src="<?= site_url('upload/image/INFOGRAFIS PPID/Alasan Pengajuan Keberatan.png') ?>" width="100%">
 										</div>
-										<button class="btn btn-info btn-block" onclick="showClick('DIPA PPID-01.jpg')">Lihat</button>
+										<button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Alasan Pengajuan Keberatan.png')">Lihat</button>
 									</div>
-								</div> -->
+								</div>
 
-								<!-- <div class="col-md-3">
+								<div class="col-md-3">
 									<div class="box box-default">
 										<div class="box-body">
-											<img src="<?= site_url('upload/image/Realisasi Anggaran Dinas Kesehatan Tahun 2022 -01.jpg') ?>" width="100%">
+											<img src="<?= site_url('upload/image/INFOGRAFIS PPID/DPA.png') ?>" width="100%">
 										</div>
-										<button class="btn btn-info btn-block" onclick="showClick('Realisasi Anggaran Dinas Kesehatan Tahun 2022 -01.jpg')">Lihat</button>
+										<button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/DPA.png')">Lihat</button>
 									</div>
-								</div> -->
+								</div>
 
-								<!-- <div class="col-md-3">
+								<div class="col-md-3">
 									<div class="box box-default">
 										<div class="box-body">
-											<img src="<?= site_url('upload/image/informasi-ppid.jpeg') ?>" width="100%">
+											<img src="<?= site_url('upload/image/INFOGRAFIS PPID/Informasi Berkala.png') ?>" width="100%">
 										</div>
-										<button class="btn btn-info btn-block" onclick="showClick('informasi-ppid.jpeg')">Lihat</button>
+										<button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Informasi Berkala.png')">Lihat</button>
 									</div>
-								</div> -->
+								</div>
 
-								<!-- <div class="col-md-3">
+								<div class="col-md-3">
 									<div class="box box-default">
 										<div class="box-body">
-											<img src="<?= site_url('upload/image/prosedur-permohonan.jpeg') ?>" width="100%">
+											<img src="<?= site_url('upload/image/INFOGRAFIS PPID/Informasi PPID.png') ?>" width="100%">
 										</div>
-										<button class="btn btn-info btn-block" onclick="showClick('prosedur-permohonan.jpeg')">Lihat</button>
+										<button class="btn btn-info btn-block" onclick="showClick('INFOGRAFIS PPID/Informasi PPID.png')">Lihat</button>
 									</div>
-								</div> -->
+								</div>
 
 							</div>
 							<div class="box-footer text-center">
-								<!-- <a href="<?php base_url() ?>infografis" class="btn btn-warning">Infografis Lainnya</a> -->
-								<a href="#" class="btn btn-warning">Infografis Lainnya</a>
+								<a href="<?php base_url() ?>infografis" class="btn btn-warning">Infografis Lainnya</a>
+								<!-- <a href="#" class="btn btn-warning">Infografis Lainnya</a> -->
 							</div>
 						</div>
 					</div>
 					<!-- INFOGRAFIS END -->
 
 					<!-- Berita -->
-					<div class="col-md-12">
+					<!-- <div class="col-md-12">
 						<h3 class="judul-card-atas"><i class="fa-solid fa-newspaper"></i> &nbsp;&nbsp;Berita Tentang PPID
 						</h3>
 						<div class="box box-solid">
-							<div class="box-body">
+							<div class="box-body"> -->
 								<!-- <div class="col-md-6 featured article">
 									<div class="thumbnail col-sm-4">
 										<img src="https://dinkes.jakarta.go.id/assets/upload/image/6583f37e8ca94-1703146366.jpg" alt="">
@@ -573,20 +573,20 @@
 										</a>
 									</div>
 								</div> -->
-							</div>
-							<div class="box-footer text-center">
+							<!-- </div>
+							<div class="box-footer text-center"> -->
 								<!-- <a href="<?php base_url() ?>berita" class="btn btn-warning">Berita Lainnya</a> -->
-								<a href="#" class="btn btn-warning">Berita Lainnya</a>
+								<!-- <a href="#" class="btn btn-warning">Berita Lainnya</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<!-- KONTEN START -->
-					<div class="col-md-12">
+					<!-- <div class="col-md-12">
 						<h3 class="judul-card-atas"><i class="fa-solid fa-images"></i>&nbsp;&nbsp;Konten Tentang PPID</h3>
 						<div class="box box-solid">
 							<div class="box-body">
-								<div class="row">
+								<div class="row"> -->
 									<!-- <div class="col-md-4">
 										<div class="box-header with-border">
 											<h3 class="box-title">Instagram @dinkesdki</h3>
@@ -814,14 +814,14 @@
 											<script async src="//www.instagram.com/embed.js"></script>
 										</div>
 									</div> -->
-								</div>
+								<!-- </div>
 							</div>
-							<div class="box-footer text-center">
+							<div class="box-footer text-center"> -->
 								<!-- <a href="<?php base_url() ?>konten" class="btn btn-warning">Konten Lainnya</a> -->
-								<a href="#" class="btn btn-warning">Konten Lainnya</a>
+								<!-- <a href="#" class="btn btn-warning">Konten Lainnya</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<!-- KONTEN END -->
 
 					<!-- SOSIALISASI START -->
