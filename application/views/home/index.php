@@ -417,7 +417,7 @@
 					<!-- VIDEO END -->
 
 					<!-- promosi kesehatan -->
-					<div class="col-md-12">
+					<!-- <div class="col-md-12">
 						<h3 class="judul-card-atas"><i class="fa-solid fa-heart-pulse"></i> &nbsp;&nbsp;Promosi Kesehatan</h3>
 						<div class="box box-solid">
 							<div class="box-body">
@@ -470,7 +470,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<!-- INFOGRAFIS START -->
 					<div class="col-md-12">
@@ -825,7 +825,7 @@
 					<!-- KONTEN END -->
 
 					<!-- SOSIALISASI START -->
-					<div class="col-md-12">
+					<!-- <div class="col-md-12">
 						<h3 class="judul-card-atas"><i class="fa-solid fa-file-video"></i>&nbsp;&nbsp;Video Sosialisasi Tentang PPID</h3>
 						<div class="box box-solid">
 							<div class="box-body">
@@ -839,7 +839,7 @@
 								<a href="<?php base_url() ?>sosialisasi" class="btn btn-warning">Sosialisasi Lainnya</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<!-- SOSIALISASI END -->
 
 				</div><!-- /.row -->
