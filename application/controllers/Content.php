@@ -536,7 +536,7 @@ class Content extends CI_Controller
             $tahunPrefix = !empty($post['TahunData']) ? $post['TahunData'] : date("Y");
 
             // generate nama file: TahunData_namafile.ext
-            $config['file_name'] = $tahunPrefix . '_' . preg_replace('/\s+/', '_', $_FILES['FileUpload']['name']);
+            $config['file_name'] = preg_replace('/\s+/', '_', $_FILES['FileUpload']['name']);
 
             $this->load->library('upload', $config);
 
