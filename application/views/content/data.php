@@ -190,7 +190,7 @@
 
                         <tr class="file-upload">
                             <td class="col-md-5">File Upload
-                                <input type="file" name="FileUpload" class="form-control" id="FileUpload">
+                                <input type="file" name="FileUpload" class="form-control" id="FileUpload" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png">
                                 <font color="red">hanya file yang ber-ekstensi pdf, doc, docx, xls, xlsx, jpg, jpeg, png</font>
                             </td>
                         </tr>

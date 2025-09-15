@@ -491,81 +491,79 @@ class Content extends CI_Controller
     public function store_data()
     {
         date_default_timezone_set('Asia/Bangkok');
+        $post = $this->input->post();
 
-        $post       = $this->input->post();
-
-        // print_r($_FILES['FileUpload']['name']);
-        // exit();
-
-        if (isset($post['IsiContent'])) {
+        $data = [];
+        if (!empty($post['IsiContent'])) {
             $data['IsiContent'] = $post['IsiContent'];
         }
-
-        if (isset($post['BulanData'])) {
-            $data['BulanData']  = $post['BulanData'];
+        if (!empty($post['BulanData'])) {
+            $data['BulanData'] = $post['BulanData'];
         }
 
-        $file_name = str_replace(' ','_',$_FILES['FileUpload']['name']);
-        // print_r($file_name);
-        // exit();
-        $data['JudulContent']   = $post['JudulContent'];
-        $data['TahunData']      = $post['TahunData'];
+        $data['JudulContent']   = $post['JudulContent'] ?? '';
+        $data['TahunData']      = $post['TahunData'] ?? '';
         $data['Tipe']           = $post['Tipe'];
-        $data['FileUpload']     = $file_name;
-        $data['UpdateDate']     = date("Y-m-d H:i:sa");
+        $data['UpdateDate']     = date("Y-m-d H:i:s");
         $data['UpdateUser']     = $this->access->get_uid();
         $data['IsActive']       = 1;
 
-        // print_r($data);
-        // exit();
-        //upload config 
-        if ($post['Tipe'] == 7) {
-            $config['upload_path']      = './upload/skdr/';
-        } else {
-            $config['upload_path']      = './upload/content/';
-        }
-        $config['allowed_types']    = 'jpeg|jpg|png|pdf|xls|xlsx|doc|docx';
-        $config['max_size']         = '0';
-        $config['max_width']        = '0';
-        $config['max_height']       = '0';
-        // $config['file_name'] = url_title($this->input->post('FileUpload'));
-        // $this->upload->initialize($config);
-
-        $this->load->library('upload', $config);
-        $this->load->library('image_lib');
-
-        if (!is_dir('upload')) {
-            mkdir('./upload', 0777, true);
+        // upload path
+        $upload_path = ($post['Tipe'] == 7) ? './upload/skdr/' : './upload/content/';
+        if (!is_dir($upload_path)) {
+            mkdir($upload_path, 0777, true);
         }
 
-        // foto
-        if ($this->upload->do_upload('FileUpload')) {
-            $up_data1       = $this->upload->data();
+        $upl_data = "";
+        if (!empty($_FILES['FileUpload']['name'])) {
+            // validasi ekstensi manual
+            $allowed_ext = ['pdf','doc','docx','xls','xlsx','jpg','jpeg','png'];
+            $file_ext    = strtolower(pathinfo($_FILES['FileUpload']['name'], PATHINFO_EXTENSION));
 
-            $upl_data       = $up_data1['file_name'];
-        } else {
-            // $error = array('error' => $this->upload->display_errors());
-            // print_r($error);
-            
-            $upl_data       = "";
+            if (!in_array($file_ext, $allowed_ext)) {
+                // kalau tidak sesuai, tampilkan error dan stop
+                $this->session->set_flashdata('error', 'Tipe file tidak diizinkan. Hanya pdf, doc, docx, xls, xlsx, jpg, jpeg, png.');
+                redirect('content/data/'.$data['Tipe']);
+                return;
+            }
+
+            // config upload
+            $config['upload_path']   = $upload_path;
+            $config['allowed_types'] = implode('|', $allowed_ext);
+            $config['max_size']      = 0; // unlimited
+            $config['overwrite']     = true;
+            // gunakan TahunData kalau ada, kalau kosong fallback ke tahun sekarang
+            $tahunPrefix = !empty($post['TahunData']) ? $post['TahunData'] : date("Y");
+
+            // generate nama file: TahunData_namafile.ext
+            $config['file_name'] = $tahunPrefix . '_' . preg_replace('/\s+/', '_', $_FILES['FileUpload']['name']);
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('FileUpload')) {
+                $up_data    = $this->upload->data();
+                $upl_data   = $up_data['file_name'];
+
+                $data['FileUpload'] = $upl_data;
+                $data['UrlLink']    = $upl_data;
+                $data['IsUpload']   = 1;
+            } else {
+                $error = $this->upload->display_errors();
+                $this->session->set_flashdata('error', $error);
+                redirect('content/data/'.$data['Tipe']);
+                return;
+            }
         }
-        // exit();
 
-        if ($upl_data == "") {
-        } else {
-            $data['FileUpload']     = $upl_data;
-            $data['UrlLink']     = $upl_data;
-            $data['IsUpload']       = 1;
-        }
-
-        if ($post['IdContent'] > 0) {
+        // insert / update DB
+        if (!empty($post['IdContent']) && $post['IdContent'] > 0) {
             $this->db->where('IdContent', $post['IdContent'])->update('content', $data);
-            echo json_encode(['status' => true, 'msg' => 'Updated']);
         } else {
             $this->db->insert('content', $data);
-            echo json_encode(['status' => true, 'msg' => 'Stored']);
         }
-        redirect('content/data/'.$data['Tipe']);
+
+        $this->session->set_flashdata('success', 'Data berhasil disimpan.');
+        redirect('content/data/' . $data['Tipe']);
     }
 
     // GET EDIT DATA
