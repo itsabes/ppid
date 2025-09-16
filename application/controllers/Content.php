@@ -493,7 +493,23 @@ class Content extends CI_Controller
         date_default_timezone_set('Asia/Bangkok');
         $post = $this->input->post();
 
-        $data = [];
+        // --- Override konfigurasi PHP (jika server mengizinkan) ---
+        ini_set('upload_max_filesize', '3000M');
+        ini_set('post_max_size', '3100M');
+        ini_set('memory_limit', '4G');
+        ini_set('max_execution_time', '0');
+        ini_set('max_input_time', '0');
+
+        // --- Data dasar ---
+        $data = [
+            'JudulContent' => $post['JudulContent'] ?? '',
+            'TahunData'    => $post['TahunData'] ?? '',
+            'Tipe'         => $post['Tipe'],
+            'UpdateDate'   => date("Y-m-d H:i:s"),
+            'UpdateUser'   => $this->access->get_uid(),
+            'IsActive'     => 1
+        ];
+
         if (!empty($post['IsiContent'])) {
             $data['IsiContent'] = $post['IsiContent'];
         }
@@ -501,48 +517,47 @@ class Content extends CI_Controller
             $data['BulanData'] = $post['BulanData'];
         }
 
-        $data['JudulContent']   = $post['JudulContent'] ?? '';
-        $data['TahunData']      = $post['TahunData'] ?? '';
-        $data['Tipe']           = $post['Tipe'];
-        $data['UpdateDate']     = date("Y-m-d H:i:s");
-        $data['UpdateUser']     = $this->access->get_uid();
-        $data['IsActive']       = 1;
-
-        // upload path
+        // --- Tentukan upload path ---
         $upload_path = ($post['Tipe'] == 7) ? './upload/skdr/' : './upload/content/';
         if (!is_dir($upload_path)) {
             mkdir($upload_path, 0777, true);
         }
 
-        $upl_data = "";
+        // --- Proses Upload ---
         if (!empty($_FILES['FileUpload']['name'])) {
-            // validasi ekstensi manual
             $allowed_ext = ['pdf','doc','docx','xls','xlsx','jpg','jpeg','png'];
             $file_ext    = strtolower(pathinfo($_FILES['FileUpload']['name'], PATHINFO_EXTENSION));
+            $file_size   = $_FILES['FileUpload']['size']; // dalam bytes
 
+            // Validasi ekstensi
             if (!in_array($file_ext, $allowed_ext)) {
-                // kalau tidak sesuai, tampilkan error dan stop
                 $this->session->set_flashdata('error', 'Tipe file tidak diizinkan. Hanya pdf, doc, docx, xls, xlsx, jpg, jpeg, png.');
-                redirect('content/data/'.$data['Tipe']);
+                redirect('content/data/' . $data['Tipe']);
                 return;
             }
 
-            // config upload
-            $config['upload_path']   = $upload_path;
-            $config['allowed_types'] = implode('|', $allowed_ext);
-            $config['max_size']      = 0; // unlimited
-            $config['overwrite']     = true;
-            // gunakan TahunData kalau ada, kalau kosong fallback ke tahun sekarang
-            $tahunPrefix = !empty($post['TahunData']) ? $post['TahunData'] : date("Y");
+            // Validasi ukuran file manual (misalnya maks 3GB)
+            $max_size_bytes = 3000 * 1024 * 1024; // 3000MB
+            if ($file_size > $max_size_bytes) {
+                $this->session->set_flashdata('error', 'Ukuran file melebihi 3000MB.');
+                redirect('content/data/' . $data['Tipe']);
+                return;
+            }
 
-            // generate nama file: TahunData_namafile.ext
-            $config['file_name'] = preg_replace('/\s+/', '_', $_FILES['FileUpload']['name']);
+            // Config upload
+            $config = [
+                'upload_path'   => $upload_path,
+                'allowed_types' => implode('|', $allowed_ext),
+                'max_size'      => 0, // unlimited (dibatasi manual di atas)
+                'overwrite'     => true,
+                'file_name'     => preg_replace('/\s+/', '_', $_FILES['FileUpload']['name'])
+            ];
 
             $this->load->library('upload', $config);
 
             if ($this->upload->do_upload('FileUpload')) {
-                $up_data    = $this->upload->data();
-                $upl_data   = $up_data['file_name'];
+                $up_data = $this->upload->data();
+                $upl_data = $up_data['file_name'];
 
                 $data['FileUpload'] = $upl_data;
                 $data['UrlLink']    = $upl_data;
@@ -550,12 +565,12 @@ class Content extends CI_Controller
             } else {
                 $error = $this->upload->display_errors();
                 $this->session->set_flashdata('error', $error);
-                redirect('content/data/'.$data['Tipe']);
+                redirect('content/data/' . $data['Tipe']);
                 return;
             }
         }
 
-        // insert / update DB
+        // --- Insert / Update ke DB ---
         if (!empty($post['IdContent']) && $post['IdContent'] > 0) {
             $this->db->where('IdContent', $post['IdContent'])->update('content', $data);
         } else {
@@ -565,6 +580,7 @@ class Content extends CI_Controller
         $this->session->set_flashdata('success', 'Data berhasil disimpan.');
         redirect('content/data/' . $data['Tipe']);
     }
+
 
     // GET EDIT DATA
     public function edit($id = '')
