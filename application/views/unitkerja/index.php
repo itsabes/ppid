@@ -25,7 +25,7 @@
                         <h3 class="box-title">
                             <div class="row">
                                 <h2><strong>Daftar Unit Kerja Perangkat Daerah (UKPD) dan Unit Pelaksana Teknis (UPT) <br>
-                                        Dinas Kesehatan Provinsi DKI Jakarta</strong>
+                                        RSUD Sawah Besar</strong>
                                 </h2>
                                 <img src="<?= base_url('upload/image/logo-dki-kecil.png'); ?>" alt="">
                                 <h3><strong>DINAS KESEHATAN PROVINSI DKI JAKARTA</strong></h3>

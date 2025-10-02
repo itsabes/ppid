@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="box box-solid">
                     <div class="box-header">
-                        <h3 style="text-align: center;font-weight: bold;font-size: 22px; margin: 20px 0;display: block">Infografis Layanan Informasi Publik - Dinas Kesehatan Provinsi DKI Jakarta</h3>
+                        <h3 style="text-align: center;font-weight: bold;font-size: 22px; margin: 20px 0;display: block">Infografis Layanan Informasi Publik - RSUD Sawah Besar</h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
