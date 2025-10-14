@@ -491,82 +491,96 @@ class Content extends CI_Controller
     public function store_data()
     {
         date_default_timezone_set('Asia/Bangkok');
+        $post = $this->input->post();
 
-        $post       = $this->input->post();
+        // --- Override konfigurasi PHP (jika server mengizinkan) ---
+        ini_set('upload_max_filesize', '3000M');
+        ini_set('post_max_size', '3100M');
+        ini_set('memory_limit', '4G');
+        ini_set('max_execution_time', '0');
+        ini_set('max_input_time', '0');
 
-        // print_r($_FILES['FileUpload']['name']);
-        // exit();
+        // --- Data dasar ---
+        $data = [
+            'JudulContent' => $post['JudulContent'] ?? '',
+            'TahunData'    => $post['TahunData'] ?? '',
+            'Tipe'         => $post['Tipe'],
+            'UpdateDate'   => date("Y-m-d H:i:s"),
+            'UpdateUser'   => $this->access->get_uid(),
+            'IsActive'     => 1
+        ];
 
-        if (isset($post['IsiContent'])) {
+        if (!empty($post['IsiContent'])) {
             $data['IsiContent'] = $post['IsiContent'];
         }
-
-        if (isset($post['BulanData'])) {
-            $data['BulanData']  = $post['BulanData'];
+        if (!empty($post['BulanData'])) {
+            $data['BulanData'] = $post['BulanData'];
         }
 
-        $file_name = str_replace(' ','_',$_FILES['FileUpload']['name']);
-        // print_r($file_name);
-        // exit();
-        $data['JudulContent']   = $post['JudulContent'];
-        $data['TahunData']      = $post['TahunData'];
-        $data['Tipe']           = $post['Tipe'];
-        $data['FileUpload']     = $file_name;
-        $data['UpdateDate']     = date("Y-m-d H:i:sa");
-        $data['UpdateUser']     = $this->access->get_uid();
-        $data['IsActive']       = 1;
-
-        // print_r($data);
-        // exit();
-        //upload config 
-        if ($post['Tipe'] == 7) {
-            $config['upload_path']      = './upload/skdr/';
-        } else {
-            $config['upload_path']      = './upload/content/';
-        }
-        $config['allowed_types']    = 'jpeg|jpg|png|pdf|xls|xlsx|doc|docx';
-        $config['max_size']         = '0';
-        $config['max_width']        = '0';
-        $config['max_height']       = '0';
-        // $config['file_name'] = url_title($this->input->post('FileUpload'));
-        // $this->upload->initialize($config);
-
-        $this->load->library('upload', $config);
-        $this->load->library('image_lib');
-
-        if (!is_dir('upload')) {
-            mkdir('./upload', 0777, true);
+        // --- Tentukan upload path ---
+        $upload_path = ($post['Tipe'] == 7) ? './upload/skdr/' : './upload/content/';
+        if (!is_dir($upload_path)) {
+            mkdir($upload_path, 0777, true);
         }
 
-        // foto
-        if ($this->upload->do_upload('FileUpload')) {
-            $up_data1       = $this->upload->data();
+        // --- Proses Upload ---
+        if (!empty($_FILES['FileUpload']['name'])) {
+            $allowed_ext = ['pdf','doc','docx','xls','xlsx','jpg','jpeg','png'];
+            $file_ext    = strtolower(pathinfo($_FILES['FileUpload']['name'], PATHINFO_EXTENSION));
+            $file_size   = $_FILES['FileUpload']['size']; // dalam bytes
 
-            $upl_data       = $up_data1['file_name'];
-        } else {
-            // $error = array('error' => $this->upload->display_errors());
-            // print_r($error);
-            
-            $upl_data       = "";
+            // Validasi ekstensi
+            if (!in_array($file_ext, $allowed_ext)) {
+                $this->session->set_flashdata('error', 'Tipe file tidak diizinkan. Hanya pdf, doc, docx, xls, xlsx, jpg, jpeg, png.');
+                redirect('content/data/' . $data['Tipe']);
+                return;
+            }
+
+            // Validasi ukuran file manual (misalnya maks 3GB)
+            $max_size_bytes = 3000 * 1024 * 1024; // 3000MB
+            if ($file_size > $max_size_bytes) {
+                $this->session->set_flashdata('error', 'Ukuran file melebihi 3000MB.');
+                redirect('content/data/' . $data['Tipe']);
+                return;
+            }
+
+            // Config upload
+            $config = [
+                'upload_path'   => $upload_path,
+                'allowed_types' => implode('|', $allowed_ext),
+                'max_size'      => 0, // unlimited (dibatasi manual di atas)
+                'overwrite'     => true,
+                'file_name'     => preg_replace('/\s+/', '_', $_FILES['FileUpload']['name'])
+            ];
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('FileUpload')) {
+                $up_data = $this->upload->data();
+                $upl_data = $up_data['file_name'];
+
+                $data['FileUpload'] = $upl_data;
+                $data['UrlLink']    = $upl_data;
+                $data['IsUpload']   = 1;
+            } else {
+                $error = $this->upload->display_errors();
+                $this->session->set_flashdata('error', $error);
+                redirect('content/data/' . $data['Tipe']);
+                return;
+            }
         }
-        // exit();
 
-        if ($upl_data == "") {
-        } else {
-            $data['FileUpload']     = $upl_data;
-            $data['UrlLink']     = $upl_data;
-            $data['IsUpload']       = 1;
-        }
-
-        if ($post['IdContent'] > 0) {
+        // --- Insert / Update ke DB ---
+        if (!empty($post['IdContent']) && $post['IdContent'] > 0) {
             $this->db->where('IdContent', $post['IdContent'])->update('content', $data);
-            echo json_encode(['status' => true, 'msg' => 'Updated']);
         } else {
             $this->db->insert('content', $data);
-            echo json_encode(['status' => true, 'msg' => 'Stored']);
         }
-        redirect('content/data/'.$data['Tipe']);
+
+        $this->session->set_flashdata('success', 'Data berhasil disimpan.');
+        redirect('content/data/' . $data['Tipe']);
     }
+
 
     // GET EDIT DATA
     public function edit($id = '')
