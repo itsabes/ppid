@@ -574,7 +574,10 @@ class Content extends CI_Controller
         if (!empty($post['IdContent']) && $post['IdContent'] > 0) {
             $this->db->where('IdContent', $post['IdContent'])->update('content', $data);
         } else {
-            $this->db->insert('content', $data);
+            if (!$this->db->insert('content', $data)) {
+                echo $this->db->error()['message'];
+                die();
+            }
         }
 
         $this->session->set_flashdata('success', 'Data berhasil disimpan.');

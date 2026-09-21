@@ -120,7 +120,7 @@
             </div>
             <div class="modal-body">
                 <!-- <form id="frm" method="post" role="form" enctype="multipart/form-data" action="<?= base_url();'content/store_data' ?>" onsubmit="return checkForm(this)"> -->
-                <form method="post" name="myForm" id="myForm" class="form-horizontal" role="form" action="<?= base_url();?>content/store_data" onsubmit="return checkForm(this)" enctype="multipart/form-data">
+                <form method="post" name="myForm" id="myForm" class="form-horizontal" role="form" action="<?= base_url();?>content/store_data" enctype="multipart/form-data">
                     <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
                     <input type="hidden" name="row_id" id="id">
                     <table class="table">
