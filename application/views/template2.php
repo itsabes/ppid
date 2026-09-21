@@ -532,6 +532,7 @@
 				<!-- Settings tab content -->
 				<div class="tab-pane" id="control-sidebar-settings-tab">
 					<form method="post">
+                        <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
 						<h3 class="control-sidebar-heading">General Settings</h3>
 
 						<div class="form-group">
@@ -829,6 +830,23 @@
 		s.parentNode.insertBefore(g, s);
 		})();
   </script> -->
+  <script type="text/javascript">
+    $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+        if (options.type.toLowerCase() === "post") {
+            var csrfName = '<?=$this->security->get_csrf_token_name();?>';
+            var csrfHash = '<?=$this->security->get_csrf_hash();?>';
+            if (typeof options.data === "string") {
+                options.data += (options.data ? "&" : "") + csrfName + "=" + csrfHash;
+            } else if (typeof options.data === "object" && !(options.data instanceof FormData)) {
+                options.data[csrfName] = csrfHash;
+            } else if (options.data instanceof FormData) {
+                options.data.append(csrfName, csrfHash);
+            } else {
+                options.data = csrfName + "=" + csrfHash;
+            }
+        }
+    });
+  </script>
 </body>
 
 </html>

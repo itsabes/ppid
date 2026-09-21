@@ -4,6 +4,7 @@
             <div class="col-md-12">
                 <div class='box box-solid'>
                     <form action="<?= $action; ?>" class="form-horizontal" method="post">
+                        <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
                         <div class='box-header with-border'>
                             <h3 class="box-title">Pengajuan Keberatan Informasi Publik</h3>
                         </div>

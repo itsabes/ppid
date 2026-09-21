@@ -60,7 +60,7 @@ class Dashboard extends CI_Controller
 	{
 		$this->unSetMenu();
 
-		$parent = $this->db->query("select is_parent from menu where id=" . $sMenu)->row()->is_parent;
+		$parent = $this->db->select('is_parent')->where('id', $sMenu)->get('menu')->row()->is_parent;
 		$sHMenu = "m" . $parent;
 		//$sHMenu = "m".substr($sMenu, 0, 3)."0";
 		$sItmMenu = "m" . $sMenu;

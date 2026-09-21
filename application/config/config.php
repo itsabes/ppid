@@ -389,7 +389,7 @@ $config['encryption_key'] = '';
 |
 */
 $config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'session_xxxxxxx'; // Ganti xxxxxxx dengan nama fasyankes tanpa spasi
+$config['sess_cookie_name'] = 'ppid_sabes';
 $config['sess_expiration'] = 7200;
 //$config['sess_save_path'] = NULL;
 $config['sess_save_path'] = sys_get_temp_dir();
@@ -415,8 +415,8 @@ $config['sess_regenerate_destroy'] = FALSE;
 $config['cookie_prefix']    = '';
 $config['cookie_domain']    = '';
 $config['cookie_path']        = '/';
-$config['cookie_secure']    = FALSE;
-$config['cookie_httponly']     = FALSE;
+$config['cookie_secure']    = is_https();
+$config['cookie_httponly']     = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -460,12 +460,20 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_regenerate' = Regenerate token on every submission
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
-$config['csrf_protection'] = FALSE;
-$config['csrf_token_name'] = 'csrf_xxxxxxx'; // Ganti xxxxxxx dengan nama fasyankes tanpa spasi
-$config['csrf_cookie_name'] = 'csrf_cookie_xxxxxxx'; // Ganti xxxxxxx dengan nama fasyankes tanpa spasi
+$config['csrf_protection'] = TRUE;
+$config['csrf_token_name'] = 'csrf_ppid_sabes';
+$config['csrf_cookie_name'] = 'csrf_cookie_ppid_sabes';
 $config['csrf_expire'] = 7200;
-$config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array();
+$config['csrf_regenerate'] = FALSE;
+$config['csrf_exclude_uris'] = array(
+    'auth/login',
+    'formulir/ambil_data_permohonan',
+    'formulir/ambil_data_keberatan',
+    'formulir/get_selesai_revisi',
+    'home/submit_rating',
+    'permohonaninformasi/store',
+    'permohonaninformasi/getstatus',
+);
 
 /*
 |--------------------------------------------------------------------------

@@ -115,13 +115,18 @@ class Home extends CI_Controller
     {
         date_default_timezone_set('Asia/Bangkok');
 
-        $rating             = $_GET["rating"];
-        $komentar           = $_GET["komentar"];
-        $data["rating"]     = $_GET["rating"];
-        $data["komentar"]   = $_GET["komentar"];
+        $rating             = $this->input->get("rating", TRUE);
+        $komentar           = $this->input->get("komentar", TRUE);
+        $data["rating"]     = $this->input->get("rating", TRUE);
+        $data["komentar"]   = $this->input->get("komentar", TRUE);
 
-        $q      = $this->db->query("INSERT INTO rating (Rating, Komentar, IP, CreatedDate) values ('" . $rating . "','" . $komentar . "','" . $_SERVER['HTTP_CLIENT_IP'] . "','" . date("Y-m-d H:i:s") . "')");
-    }
+        $data_insert = array(
+            'Rating' => $rating,
+            'Komentar' => $komentar,
+            'IP' => $this->input->ip_address(),
+            'CreatedDate' => date("Y-m-d H:i:s")
+        );
+        $this->db->insert('rating', $data_insert);    }
 }
 
 /* End of file Akun.php */

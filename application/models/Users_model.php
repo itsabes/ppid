@@ -15,19 +15,23 @@ class Users_model extends CI_Model
 		//$query = $this->db->query("select a.* from user a where a.username='$username'");
 		/*$query = $this->db->query("SELECT a.id, a.username, a.password, a.nama, a.level, a.aplikasi, a.IdOrganisasi, a.IdSeksi, b.* from user a left join pegawai b on a.IdPegawai=b.IdPegawai
 								   WHERE a.username='$username'"); */
-		$query = $this->db->query("SELECT a.id, a.username, a.password, a.nama, a.email, a.level, a.aplikasi, a.IdOrganisasi, a.IdSeksi, a.telp from user a
-								   WHERE a.username='$username'");
+		$this->db->select('id, username, password, nama, email, level, aplikasi, IdOrganisasi, IdSeksi, telp');
+		$this->db->from('user');
+		$this->db->where('username', $username);
+		$query = $this->db->get();
 		return ($query->num_rows() > 0) ? $query->row() : FALSE;
 	}
 
 	// LIBRARIES TEMPLATE
 	function get_menu($level)
 	{
-		$sql = 'SELECT user_menu.* FROM user_akses INNER JOIN user_menu 
-				ON (user_akses.kode_menu = user_menu.kode) WHERE 
-				user_akses.level="' . $level . '" AND user_menu.tipe="0" 
-				ORDER BY user_menu.urutan';
-		$result = $this->db->query($sql);
+		$this->db->select('user_menu.*');
+		$this->db->from('user_akses');
+		$this->db->join('user_menu', 'user_akses.kode_menu = user_menu.kode', 'inner');
+		$this->db->where('user_akses.level', $level);
+		$this->db->where('user_menu.tipe', '0');
+		$this->db->order_by('user_menu.urutan', 'ASC');
+		$result = $this->db->get();
 
 		$menu = '';
 		$menu_child = '';
@@ -36,11 +40,14 @@ class Users_model extends CI_Model
 			foreach ($result->result() as $parent) {
 				$li_parent = '';
 
-				$sql = 'SELECT user_menu.* FROM user_akses INNER JOIN user_menu 
-						ON (user_akses.kode_menu = user_menu.kode) WHERE 
-						user_akses.level="' . $level . '" AND user_menu.tipe="1" AND parent="' . $parent->kode . ' "
-						ORDER BY user_menu.urutan';
-				$result_child = $this->db->query($sql);
+				$this->db->select('user_menu.*');
+				$this->db->from('user_akses');
+				$this->db->join('user_menu', 'user_akses.kode_menu = user_menu.kode', 'inner');
+				$this->db->where('user_akses.level', $level);
+				$this->db->where('user_menu.tipe', '1');
+				$this->db->where('user_menu.parent', $parent->kode);
+				$this->db->order_by('user_menu.urutan', 'ASC');
+				$result_child = $this->db->get();
 				if ($result_child->num_rows() > 0) {
 					$li_parent = 'class="treeview"';
 					$menu_child = '<ul class="treeview-menu">';
@@ -68,9 +75,11 @@ class Users_model extends CI_Model
 	 */
 	function get_akses($kode_menu, $level_cookie)
 	{
-		$sql = 'SELECT COUNT(*) AS hasil FROM user_akses WHERE
-				user_akses.kode_menu="' . $kode_menu . '" AND user_akses.level="' . $level_cookie . '"';
-		$hasil = $this->db->query($sql)->row()->hasil;
+		$this->db->select('COUNT(*) AS hasil');
+		$this->db->from('user_akses');
+		$this->db->where('kode_menu', $kode_menu);
+		$this->db->where('level', $level_cookie);
+		$hasil = $this->db->get()->row()->hasil;
 
 		return $hasil;
 	}
@@ -81,15 +90,19 @@ class Users_model extends CI_Model
 	 */
 	function change_password($username, $password)
 	{
-		$sql = 'UPDATE `user`SET password=SHA1("' . $password . '") WHERE username="' . $username . '"';
-		$this->db->query($sql);
+		$this->db->set('password', 'SHA1("' . $this->db->escape_str($password) . '")', FALSE);
+		$this->db->where('username', $username);
+		$this->db->update('user');
 	}
 
 	// DASHBOARD
 	function get_user_count($username, $password)
 	{
-		$sql = 'SELECT COUNT(*) AS hasil FROM `user` WHERE username="' . $username . '" AND password=SHA1("' . $password . '")';
-		$query = $this->db->query($sql);
+		$this->db->select('COUNT(*) AS hasil');
+		$this->db->from('user');
+		$this->db->where('username', $username);
+		$this->db->where('password', 'SHA1("' . $this->db->escape_str($password) . '")', FALSE);
+		$query = $this->db->get();
 		return $query->row()->hasil;
 	}
 
@@ -99,34 +112,56 @@ class Users_model extends CI_Model
 
 	function save_user($username, $nama, $alamat, $telp, $level, $password)
 	{
-		$sql = 'INSERT INTO user (`username`,`nama`,`alamat`,`telp`,`level`,`password`) VALUES
-				("' . $username . '", "' . $nama . '", "' . $alamat . '", "' . $telp . '", "' . $level . '", SHA1("' . $password . '"))';
-		$this->db->query($sql);
+		$data = array(
+			'username' => $username,
+			'nama' => $nama,
+			'alamat' => $alamat,
+			'telp' => $telp,
+			'level' => $level
+		);
+		$this->db->set($data);
+		$this->db->set('password', 'SHA1("' . $this->db->escape_str($password) . '")', FALSE);
+		$this->db->insert('user');
 	}
 
 	function delete_user($username)
 	{
-		$sql = 'DELETE FROM user WHERE username="' . $username . '"';
-		$this->db->query($sql);
+		$this->db->where('username', $username);
+		$this->db->delete('user');
 	}
 
 	function update_user($username, $nama, $alamat, $telp)
 	{
-		$sql = 'UPDATE user SET `nama`="' . $nama . '",`alamat`="' . $alamat . '",`telp`="' . $telp . '" WHERE `username`="' . $username . '"';
-		$this->db->query($sql);
+		$data = array(
+			'nama' => $nama,
+			'alamat' => $alamat,
+			'telp' => $telp
+		);
+		$this->db->where('username', $username);
+		$this->db->update('user', $data);
 	}
 
 	function get_users($start, $rows, $search)
 	{
-		$sql = 'SELECT * FROM user WHERE (username LIKE "%' . $search . '%" OR 
-		nama LIKE "%' . $search . '%") AND username!="admin" ORDER BY nama ASC LIMIT ' . $start . ',' . $rows;
-		return $this->db->query($sql);
+		$this->db->group_start();
+		$this->db->like('username', $search);
+		$this->db->or_like('nama', $search);
+		$this->db->group_end();
+		$this->db->where('username !=', 'admin');
+		$this->db->order_by('nama', 'ASC');
+		$this->db->limit($rows, $start);
+		return $this->db->get('user');
 	}
 
 	function get_users_count($search)
 	{
-		$sql = 'SELECT COUNT(*) AS hasil FROM user WHERE (username LIKE "%' . $search . '%" OR 
-		nama LIKE "%' . $search . '%") AND username!="admin"';
-		return $this->db->query($sql);
+		$this->db->select('COUNT(*) AS hasil');
+		$this->db->from('user');
+		$this->db->group_start();
+		$this->db->like('username', $search);
+		$this->db->or_like('nama', $search);
+		$this->db->group_end();
+		$this->db->where('username !=', 'admin');
+		return $this->db->get();
 	}
 }

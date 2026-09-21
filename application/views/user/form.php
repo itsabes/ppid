@@ -14,6 +14,7 @@
         <div class="col-md-12">
             <div class='box box-solid'>
                 <form action="<?= $action; ?>" method="post" class="form-horizontal" accept-charset="utf-8">
+                    <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
                     <div class="box-header with-border">
                         <input type="hidden" name="id" value="<?= $id; ?>" />
 

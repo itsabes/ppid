@@ -237,6 +237,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <form action="<?= base_url('formulir/store_edit_formulir_file') ?>" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
         <div class="modal-header">
           <h3 class="modal-title">File Upload</h3>
         </div>

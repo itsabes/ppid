@@ -43,8 +43,8 @@ class Content extends CI_Controller
             ($this->session->userdata('level') == "admin" or $this->session->userdata('level') == "operator")
         ) {
             $content        = $this->Content_model->get_by_tipe($tipe);
-            $IdTipe         = $this->db->query('select IdTipe from tipe where IdTipe = ' . $tipe)->row('IdTipe');
-            $Tipe           = $this->db->query('select keterangan from tipe where IdTipe = ' . $tipe)->row('keterangan');
+            $IdTipe         = $this->db->select('IdTipe')->where('IdTipe', $tipe)->get('tipe')->row('IdTipe');
+            $Tipe           = $this->db->select('keterangan')->where('IdTipe', $tipe)->get('tipe')->row('keterangan');
 
             $data = array(
                 'IdTipe'            => $IdTipe,
@@ -69,7 +69,7 @@ class Content extends CI_Controller
             ($this->session->userdata('level') == "admin" or $this->session->userdata('level') == "operator")
         ) {
             $content        = $this->Content_model->get_by_tipe($tipe);
-            $Tipe           = $this->db->query('select keterangan from tipe where IdTipe = ' . $tipe)->row('keterangan');
+            $Tipe           = $this->db->select('keterangan')->where('IdTipe', $tipe)->get('tipe')->row('keterangan');
 
             $data = array(
                 'Tipe'              => $Tipe,
@@ -877,8 +877,8 @@ class Content extends CI_Controller
 
     public function ambil_data_content()
     {
-        $Periode            = $_GET["Periode"];
-        $data["Periode"]    = $_GET["Periode"];
+        $Periode            = $this->input->get("Periode", TRUE);
+        $data["Periode"]    = $this->input->get("Periode", TRUE);
 
         $this->session->unset_userdata('Periode');
         //$sess_data['id_plant'] = $data["id_plant"];
@@ -980,8 +980,8 @@ class Content extends CI_Controller
 
     public function ambil_data_regulasi()
     {
-        $Kategori           = $_GET["Kategori"];
-        $data["Kategori"]   = $_GET["Kategori"];
+        $Kategori           = $this->input->get("Kategori", TRUE);
+        $data["Kategori"]   = $this->input->get("Kategori", TRUE);
         $this->session->unset_userdata('Kategori');
         //$sess_data['id_plant'] = $data["id_plant"];
         $this->session->set_userdata($data);

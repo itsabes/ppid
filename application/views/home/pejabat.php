@@ -14,83 +14,49 @@
                     </div>
                     <div class="box-body">
                         <div class="row justify-content-md-center">
-                            <!-- <div class="col-md-4">
+
+                            <div class="col-md-6">
                                 <div class="box box-solid">
                                     <div class="box-body box-profile">
-                                        <img class="profile-user-img img-responsive" src="http://ppid-dinkes.jakarta.go.id/upload/image/ibu-kadis.png" alt="User profile picture">
+                                        <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/direktur.png') ?>" alt="User profile picture">
 
-                                        <h3 class="profile-username text-center">dr. Widyastuti, MKM</h3>
-
-                                        <p class="text-muted text-center">Kepala Dinas Kesehatan</p>
-
-                                        <ul class="list-group list-group-unbordered">
-                                            <li class="list-group-item">
-                                                <b>Nama</b> <a class="pull-right">dr. Widyastuti, MKM</a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Semarang, 29-06-1964</a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Agama</b> <a class="pull-right">Islam</a>
-                                            </li>
-                                        </ul>
-
-                                        <button onclick="showClick('kadis')" type="button" class="btn btn-primary btn-block">Selengkapnya</button>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            <div class="col-md-4">
-
-                                <!-- Profile Image -->
-                                <div class="box box-solid">
-                                    <div class="box-body box-profile">
-                                        <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/direktur.JPG') ?>" alt="User profile picture">
-
-                                        <h3 class="profile-username text-center">dr. Herni Lestyaningsih, MARS</h3>
+                                        <h3 class="profile-username text-center">dr. Ekonugroho Budhi Prasetyo, MARS</h3>
 
                                         <p class="text-muted text-center">Direktur RSUD Sawah Besar</p>
 
                                         <ul class="list-group list-group-unbordered">
                                             <li class="list-group-item">
-                                                <b>Nama</b> <a class="pull-right">dr. Herni Lestyaningsih, MARS</a>
+                                                <b>Nama</b> <a class="pull-right">dr. Ekonugroho Budhi Prasetyo, MARS</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Jakarta, 16-03-1975</a>
+                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Jakarta, 01-06-1981</a>
                                             </li>
-                                            <!-- <li class="list-group-item">
-                                                <b>Agama</b> <a class="pull-right">Islam</a>
-                                            </li> -->
                                         </ul>
 
                                         <button onclick="showClick('direktur')" type="button" class="btn btn-primary btn-block">Selengkapnya</button>
                                     </div>
                                     <!-- /.box-body -->
                                 </div>
-                                <!-- /.box -->
                             </div>
 
-							<div class="col-md-4">
+							<div class="col-md-6">
 
                                 <!-- Profile Image -->
                                 <div class="box box-solid">
                                     <div class="box-body box-profile">
-                                        <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/yanmed.JPG') ?>" alt="User profile picture">
+                                        <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/yanmed.png') ?>" alt="User profile picture">
 
-                                        <h3 class="profile-username text-center">dr. Finan Setianto Santana</h3>
+                                        <h3 class="profile-username text-center">dr. Vellyana Gustika, MARS</h3>
 
-                                        <p class="text-muted text-center">Kepala Seksi Pelayanan Medis</p>
+                                        <p class="text-muted text-center">Kepala Seksi Pelayanan Medik dan Keperawatan</p>
 
                                         <ul class="list-group list-group-unbordered">
                                             <li class="list-group-item">
-                                                <b>Nama</b> <a class="pull-right">dr. Finan Setianto Santana</a>
+                                                <b>Nama</b> <a class="pull-right">dr. Vellyana Gustika, MARS</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Jakarta, 25-03-1983</a>
+                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Dili, 09-08-1989</a>
                                             </li>
-                                            <!-- <li class="list-group-item">
-                                                <b>Agama</b> <a class="pull-right">Islam</a>
-                                            </li> -->
                                         </ul>
 
                                         <button onclick="showClick('yanmed')" type="button" class="btn btn-primary btn-block">Selengkapnya</button>
@@ -100,27 +66,24 @@
                                 <!-- /.box -->
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-6">
 
                                 <!-- Profile Image -->
                                 <div class="box box-solid">
                                     <div class="box-body box-profile">
                                         <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/penunjang.png') ?>" alt="User profile picture">
 
-                                        <h3 class="profile-username text-center">Indra, Apt</h3>
+                                        <h3 class="profile-username text-center">dr. Irvieny Rumondang S.,MKK</h3>
 
-                                        <p class="text-muted text-center">Kepala Seksi Penunjang</p>
+                                        <p class="text-muted text-center">Kepala Seksi Pelayanan Penunjang</p>
 
                                         <ul class="list-group list-group-unbordered">
                                             <li class="list-group-item">
-                                                <b>Nama</b> <a class="pull-right">Indra, Apt</a>
+                                                <b>Nama</b> <a class="pull-right">dr. Irvieny Rumondang S.,MKK</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Bukittinggi, 26-12-1978</a>
+                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Rantau Prapat, 28-10-1972</a>
                                             </li>
-                                            <!-- <li class="list-group-item">
-                                                <b>Agama</b> <a class="pull-right">Islam</a>
-                                            </li> -->
                                         </ul>
                                         <button onclick="showClick('penunjang')" type="button" class="btn btn-primary btn-block">Selengkapnya</button>
                                     </div>
@@ -129,6 +92,34 @@
                                 <!-- /.box -->
 
                             </div>
+
+                            <div class="col-md-6">
+
+                                <!-- Profile Image -->
+                                <div class="box box-solid">
+                                    <div class="box-body box-profile">
+                                        <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/tatausaha.png') ?>" alt="User profile picture">
+
+                                        <h3 class="profile-username text-center">Ns. Syaiful Anwar, S. Kep, MKM</h3>
+
+                                        <p class="text-muted text-center">Kepala Sub Bagian Tata Usaha</p>
+
+                                        <ul class="list-group list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <b>Nama</b> <a class="pull-right">Ns. Syaiful Anwar, S. Kep, MKM</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Jakarta, 30-10-1973</a>
+                                            </li>
+                                        </ul>
+                                        <button onclick="showClick('tatausaha')" type="button" class="btn btn-primary btn-block">Selengkapnya</button>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+
+                            </div>
+
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -172,11 +163,13 @@
 
     function showClick(pos) {
         if (pos == 'direktur') {
-            filepath = 'Biodata-Direktur(dr.Herni).pdf';
+            filepath = 'Biodata-Direktur.pdf';
         } else if (pos == 'yanmed') {
-            filepath = 'Biodata-Kayanmed (dr.Finan).pdf';
+            filepath = 'Biodata-Yanmed.pdf';
         } else if (pos == 'penunjang') {
-            filepath = 'Biodata-Kayanjang (indra, Apt).pdf';
+            filepath = 'Biodata-Penunjang.pdf';
+        } else if (pos == 'tatausaha') {
+            filepath = 'Biodata-TataUsaha.pdf'; // Pastikan nama file ini sesuai di folder upload/dokumen
         }
 
         $('#fileup').attr('src', "<?php echo base_url() . 'upload/dokumen/'; ?>" + filepath);

@@ -69,17 +69,17 @@ class Formulir_model extends CI_Model
         $Organisasi = $this->session->userdata('Organisasi');
         // $Organisasi2 = $this->session->userdata('periode');
         if (!empty($Organisasi)) {
-            $sql = "SELECT a.*
-                        FROM formulir a
-                        WHERE TujuanInformasi = '$Tujuan'
-                        ORDER BY a.CreatedDate DESC";
+            $this->db->select('a.*');
+            $this->db->from('formulir a');
+            $this->db->where('TujuanInformasi', $Tujuan);
+            $this->db->order_by('a.CreatedDate', 'DESC');
         } else {
-            $sql = "SELECT a.*
-                        FROM formulir a
-                        WHERE TujuanInformasi = '$Tujuan'
-                        ORDER BY a.CreatedDate DESC";
+            $this->db->select('a.*');
+            $this->db->from('formulir a');
+            $this->db->where('TujuanInformasi', $Tujuan);
+            $this->db->order_by('a.CreatedDate', 'DESC');
         }
-        return $this->db->query($sql)->result();
+        return $this->db->get()->result();
     }
 
     // get all query
@@ -118,16 +118,15 @@ class Formulir_model extends CI_Model
     // get all filter
     function get_query3_filter($Tujuan)
     {
-        $sql = "SELECT a.*, b.username, b.nama, c.Seksi, d.Bidang
-                FROM formulir a
-                LEFT JOIN user b ON a.ResponseUser = b.id
-                LEFT JOIN seksi c ON a.Disposisi = c.IdSeksi
-                LEFT JOIN bidang d ON a.Disposisibid = d.IdBidang
-                WHERE a.TujuanInformasi = '$Tujuan'
-                GROUP BY a.IdFormulir
-                ORDER BY a.CreatedDate DESC";
-
-        return $this->db->query($sql)->result();
+        $this->db->select('a.*, b.username, b.nama, c.Seksi, d.Bidang');
+        $this->db->from('formulir a');
+        $this->db->join('user b', 'a.ResponseUser = b.id', 'left');
+        $this->db->join('seksi c', 'a.Disposisi = c.IdSeksi', 'left');
+        $this->db->join('bidang d', 'a.Disposisibid = d.IdBidang', 'left');
+        $this->db->where('a.TujuanInformasi', $Tujuan);
+        $this->db->group_by('a.IdFormulir');
+        $this->db->order_by('a.CreatedDate', 'DESC');
+        return $this->db->get()->result();
     }
 
     // get all query

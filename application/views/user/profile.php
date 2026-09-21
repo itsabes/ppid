@@ -31,6 +31,7 @@
 				<div class="tab-content">
 					<div class="active tab-pane" id="profile">
 						<form action="<?= $action; ?>" class="form-horizontal" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                            <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
 							<div class='box box-solid' style="height:auto;padding:10px;">
 								<div class="box-body" style="padding:20px;">
 									<div class="form-group">

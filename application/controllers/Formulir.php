@@ -71,7 +71,7 @@ class Formulir extends CI_Controller
             $this->session->userdata('logged_in') != "" &&
             ($this->session->userdata('level') == "admin" or $this->session->userdata('level') == "operator")
         ) {
-            $Tujuan         = $_POST['Tujuan'];
+            $Tujuan         = $this->input->post('Tujuan', TRUE);
 
             if ($Tujuan == 'semua') {
                 $formulir_data      = $this->Formulir_model->get_all_query();
@@ -258,7 +258,7 @@ class Formulir extends CI_Controller
             ($this->session->userdata('level') == "admin" or $this->session->userdata('level') == "operator")
         ) {
 
-            $Tujuan         = $_POST['Tujuan'];
+            $Tujuan         = $this->input->post('Tujuan', TRUE);
 
             if ($Tujuan == 'semua') {
                 $formulir_data      = $this->Formulir_model->get_all_query3();
@@ -504,17 +504,21 @@ class Formulir extends CI_Controller
     // ACTION CEK PERMOHONAN
     public function ambil_data_permohonan()
     {
-        $nomor          = $_GET["nomor"];
-        $email          = $_GET["email"];
-        $data["nomor"]  = $_GET["nomor"];
-        $data["email"]  = $_GET["email"];
+        $nomor          = $this->input->get("nomor", TRUE);
+        $email          = $this->input->get("email", TRUE);
+        $data["nomor"]  = $this->input->get("nomor", TRUE);
+        $data["email"]  = $this->input->get("email", TRUE);
 
         $this->session->unset_userdata('nomor');
         $this->session->unset_userdata('email');
 
         $this->session->set_userdata($data);
 
-        $q              = $this->db->query("SELECT * FROM formulir WHERE Nomor = '" . $nomor . "' AND Email = '" . $email . "'")->result_array();
+        $this->db->select('*');
+        $this->db->from('formulir');
+        $this->db->where('Nomor', $nomor);
+        $this->db->where('Email', $email);
+        $q = $this->db->get()->result_array();
 
         if (!empty($q)) {
             $history        = $this->Formulir_History_model->get_by_id_formulir($q[0]['IdFormulir']);
@@ -954,17 +958,21 @@ class Formulir extends CI_Controller
         // ACTION CEK KEBERATAN
         public function ambil_data_keberatan()
         {
-            $nomor              = $_GET["nomor"];
-            $email              = $_GET["email"];
-            $data["nomor"]      = $_GET["nomor"];
-            $data["email"]      = $_GET["email"];
+            $nomor              = $this->input->get("nomor", TRUE);
+            $email              = $this->input->get("email", TRUE);
+            $data["nomor"]      = $this->input->get("nomor", TRUE);
+            $data["email"]      = $this->input->get("email", TRUE);
 
             $this->session->unset_userdata('nomor');
             $this->session->unset_userdata('email');
 
             $this->session->set_userdata($data);
 
-            $q = $this->db->query("SELECT * FROM formulir WHERE NomorKeberatan = '" . $nomor . "' AND Email = '" . $email . "'")->result_array();
+            $this->db->select('*');
+            $this->db->from('formulir');
+            $this->db->where('NomorKeberatan', $nomor);
+            $this->db->where('Email', $email);
+            $q = $this->db->get()->result_array();
 
             foreach ($q as $qq) { ?>
                     <table class="table table-responsive">
@@ -1023,7 +1031,7 @@ class Formulir extends CI_Controller
         {
             $selesai_revisi = $this->Formulir_model->selesai_revisi();
 
-            print_r(json_encode($selesai_revisi));
+            echo json_encode($selesai_revisi);
         }
 
         function sendEmail($data)
@@ -1123,10 +1131,10 @@ class Formulir extends CI_Controller
         public function delete_rating($id)
         {
             if ($this->session->userdata('logged_in') != "" && ($this->session->userdata('level') == "admin")) {
-                $row            = $this->db->query("SELECT * FROM rating WHERE IdRating = " . $id)->row();
+                $row = $this->db->get_where('rating', array('IdRating' => $id))->row();
 
                 if ($row) {
-                    $this->db->query("DELETE FROM rating WHERE IdRating = " . $id);
+                    $this->db->delete('rating', array('IdRating' => $id));
                     $this->session->set_flashdata('message', 'Delete Record Success');
 
                     redirect(site_url('formulir/rating'));

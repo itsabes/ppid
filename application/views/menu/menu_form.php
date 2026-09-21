@@ -9,6 +9,7 @@
         <div class='box-body'>
           <div class='box box-primary'>
             <form action="<?= $action; ?>" method="post">
+                <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
               <table class='table table-bordered'>
                 <tr>
                   <td width="120">Name <?= form_error('name') ?></td>

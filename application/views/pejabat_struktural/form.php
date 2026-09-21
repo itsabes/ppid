@@ -15,6 +15,7 @@
         <div class="col-md-12">
             <div class='box box-solid'>
                 <form action="<?= $action; ?>" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
                     <div class="box-header with-border">
                         <?php
                         if (empty($disable)) { ?>

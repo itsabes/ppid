@@ -113,7 +113,7 @@ class PermohonanInformasi extends CI_Controller
 
         curl_close($curl);
 
-        print_r($response);
+        echo $response;
     }
 
     public function cekStatus()
