@@ -18,6 +18,18 @@
                     <button onclick="addClick()" type="button" class="btn btn-success"><i class="fa fa-plus"></i>Tambah</button>
                 </div>
                 <div class='box-body'>
+                    <?php if ($this->session->flashdata('success')): ?>
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <?= $this->session->flashdata('success'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($this->session->flashdata('error')): ?>
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <?= $this->session->flashdata('error'); ?>
+                        </div>
+                    <?php endif; ?>
                     <div id="data_content" class="table-responsive">
                         <table class="table" id="mytable">
                             <thead>
