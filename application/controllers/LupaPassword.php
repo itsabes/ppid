@@ -12,7 +12,7 @@
  * @property User_model $User_model
  */
 
-class LupaPassword extends CI_Controller
+class Lupapassword extends CI_Controller
 {
     function __construct()
     {

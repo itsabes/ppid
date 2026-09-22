@@ -261,7 +261,7 @@
 						<div class="col-md-3">
 							<div class="small-box bg-purple box-pengaduan-tambah">
 								<div class="inner">
-									<a href="<?= base_url() . 'kanal-pengaduan-resmi' ?>" target="_blank">
+									<a href="https://ppid.jakarta.go.id/kanal-pengaduan-resmi" target="_blank">
 										<i class="fa-solid fa-headset"></i>
 										<p class="text-center">Kanal Pengaduan <br>Resmi</p>
 									</a>

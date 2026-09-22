@@ -12,7 +12,7 @@ if (!defined('BASEPATH'))
  */
 
 // API KE PPID PEMPROV
-class PermohonanInformasi extends CI_Controller
+class Permohonaninformasi extends CI_Controller
 {
     protected $baseUrlDev;
     protected $baseUrlProd;

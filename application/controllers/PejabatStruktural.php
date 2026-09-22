@@ -15,7 +15,7 @@ if (!defined('BASEPATH'))
  * @property db $db
  */
 
-class PejabatStruktural extends CI_Controller
+class Pejabatstruktural extends CI_Controller
 {
     function __construct()
     {
