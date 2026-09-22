@@ -80,7 +80,7 @@ class Content_model extends CI_Model
                         GROUP BY a.JudulContent, a.TahunData 
                         ORDER BY a.JudulContent, a.TahunData";
             } else if ($tipe == 23) {
-                $sql = "SELECT cast(trim('.' from left(a.JudulContent, 2)) as int) as no, a.*, b.username
+                $sql = "SELECT cast(trim('.' from left(a.JudulContent, 2)) as unsigned) as no, a.*, b.username
                         FROM content a LEFT JOIN user b ON a.UpdateUser = b.id
                         WHERE tipe=" . $tipe . "
                         ORDER BY no, a.TahunData";

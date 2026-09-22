@@ -39,6 +39,33 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-6">
+
+                                <!-- Profile Image -->
+                                <div class="box box-solid">
+                                    <div class="box-body box-profile">
+                                        <img class="profile-user-img img-responsive" src="<?= site_url('upload/image/tatausaha.png') ?>" alt="User profile picture">
+
+                                        <h3 class="profile-username text-center">Ns. Syaiful Anwar, S. Kep, MKM</h3>
+
+                                        <p class="text-muted text-center">Kepala Sub Bagian Tata Usaha</p>
+
+                                        <ul class="list-group list-group-unbordered">
+                                            <li class="list-group-item">
+                                                <b>Nama</b> <a class="pull-right">Ns. Syaiful Anwar, S. Kep, MKM</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <b>Tempat, Tanggal Lahir</b> <a class="pull-right">Jakarta, 30-10-1973</a>
+                                            </li>
+                                        </ul>
+                                        <button onclick="showClick('tatausaha')" type="button" class="btn btn-primary btn-block">Selengkapnya</button>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+
+                            </div>
+                            
 							<div class="col-md-6">
 
                                 <!-- Profile Image -->

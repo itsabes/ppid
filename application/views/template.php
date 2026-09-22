@@ -224,6 +224,11 @@
 
                 echo "<li id='" . $s->id . "' class='menus " . $this->session->userdata($menuid) . "'>" . anchor(site_url() . $s->link, "<i class='$s->icon'></i> <span>" . $s->name) . "</span></li>";
               }
+              
+              if ($m->name == 'Master' && $level == 'admin') {
+                  echo "<li id='menu_combobox' class='menus'><a href='" . site_url('combobox') . "'><i class='fa fa-circle-o'></i> <span>Combobox</span></a></li>";
+              }
+
               echo "</ul>
                     </li>";
             } else {
