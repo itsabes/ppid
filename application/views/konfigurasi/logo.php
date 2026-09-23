@@ -47,9 +47,9 @@
 </section>
 <script>
     $('input[type="file"]').on('change', function() {
-        var maxAllowedSize = 2 * 1024 * 1024; // 2MB
+        var maxAllowedSize = 1 * 1024 * 1024; // 1MB
         if (this.files[0] && this.files[0].size > maxAllowedSize) {
-            alert("Ukuran file terlalu besar! Maksimal upload adalah 2MB.");
+            alert("Ukuran file terlalu besar! Maksimal upload adalah 1MB.");
             this.value = "";
         }
     });

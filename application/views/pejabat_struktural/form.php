@@ -49,13 +49,13 @@
                         <div class="form-group col-md-6">
                             <label for="foto_pejabat_struktural">Foto Pejabat Struktural<span> *</span></label>
                             <input type="file" id="foto_pejabat_struktural" name="foto_pejabat_struktural" class="form-control" <?= $disable; ?>>
-                            <span class="text-danger">Hanya file jpg / jpeg / png (Maksimal 2MB)</span>
+                            <span class="text-danger">Hanya file jpg / jpeg / png (Maksimal 1MB)</span>
                             <div><?= form_error('foto_pejabat_struktural') ?></div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="lampiran_pejabat_struktural">Lampiran Pejabat Struktural<span> *</span></label>
                             <input type="file" id="lampiran_pejabat_struktural" name="lampiran_pejabat_struktural" class="form-control" <?= $disable; ?>>
-                            <span class="text-danger">Hanya file pdf (Maksimal 2MB)</span>
+                            <span class="text-danger">Hanya file pdf (Maksimal 1MB)</span>
                             <div><?= form_error('lampiran_pejabat_struktural') ?></div>
                         </div>
                     </div>
@@ -66,9 +66,9 @@
 </section>
 <script>
     $('input[type="file"]').on('change', function() {
-        var maxAllowedSize = 2 * 1024 * 1024; // 2MB
+        var maxAllowedSize = 1 * 1024 * 1024; // 1MB
         if (this.files[0] && this.files[0].size > maxAllowedSize) {
-            alert("Ukuran file terlalu besar! Maksimal upload adalah 2MB.");
+            alert("Ukuran file terlalu besar! Maksimal upload adalah 1MB.");
             this.value = "";
         }
     });

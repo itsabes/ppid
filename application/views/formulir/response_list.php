@@ -273,7 +273,7 @@
                             </tr>
 
                             <tr>
-                                <td class="col-md-3" colspan="2">Upload Surat Jawaban <span class="text-danger">(Maksimal 2MB)</span>
+                                <td class="col-md-3" colspan="2">Upload Surat Jawaban <span class="text-danger">(Maksimal 1MB)</span>
                                     <input type="file" name="UploadJawaban" class="form-control" id="UploadJawaban">
                                 </td>
                             </tr>
@@ -545,9 +545,9 @@
     }
 
     $('input[type="file"]').on('change', function() {
-        var maxAllowedSize = 2 * 1024 * 1024; // 2MB
+        var maxAllowedSize = 1 * 1024 * 1024; // 1MB
         if (this.files[0] && this.files[0].size > maxAllowedSize) {
-            alert("Ukuran file terlalu besar! Maksimal upload adalah 2MB.");
+            alert("Ukuran file terlalu besar! Maksimal upload adalah 1MB.");
             this.value = "";
         }
     });

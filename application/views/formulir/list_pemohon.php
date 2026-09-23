@@ -245,7 +245,7 @@
           <input type="hidden" name="row_id" id="id">
           <table class="table">
             <tr id="surat-permohonan">
-              <td class="col-md-6" colspan="2">Surat Permohonan<span class="text-danger"> *PDF (Maks. 2MB)</span>
+              <td class="col-md-6" colspan="2">Surat Permohonan<span class="text-danger"> *PDF (Maks. 1MB)</span>
               </td>
               <td class="col-md-4" colspan="2">
                 <input type="file" class="form-control" name="UploadPermohonan" id="UploadPermohonan" placeholder="">
@@ -256,7 +256,7 @@
             </tr>
             <?php if ($formulir->TujuanInformasi != 'Lain-Lain') { ?>
               <tr id="proposal-penelitian">
-                <td class="col-md-6" colspan="2">KAK/Proposal Penelitian<span class="text-danger"> *PDF (Maks. 2MB)</span>
+                <td class="col-md-6" colspan="2">KAK/Proposal Penelitian<span class="text-danger"> *PDF (Maks. 1MB)</span>
                 </td>
                 <td class="col-md-4" colspan="2">
                   <input type="file" class="form-control" name="UploadKak" id="UploadKak" placeholder="">
@@ -266,7 +266,7 @@
                 </td>
               </tr>
               <tr id="ktp-kitas-peneliti">
-                <td class="col-md-6" colspan="2">FC KTP/KITAS Peneliti Utama<span class="text-danger"> *PDF (Maks. 2MB)</span>
+                <td class="col-md-6" colspan="2">FC KTP/KITAS Peneliti Utama<span class="text-danger"> *PDF (Maks. 1MB)</span>
                 </td>
                 <td class="col-md-4" colspan="2">
                   <input type="file" class="form-control" name="UploadKartuIdentitas" id="UploadKartuIdentitas" placeholder="">
@@ -276,7 +276,7 @@
                 </td>
               </tr>
               <tr id="suket-kaji-etik">
-                <td class="col-md-6" colspan="2">Upload Surat keterangan Kaji Etik<span class="text-danger"> *PDF (Maks. 2MB)</span>
+                <td class="col-md-6" colspan="2">Upload Surat keterangan Kaji Etik<span class="text-danger"> *PDF (Maks. 1MB)</span>
                 </td>
                 <td class="col-md-4" colspan="2">
                   <input type="file" class="form-control" name="UploadKeteranganKajiEtik" id="UploadKeteranganKajiEtik" placeholder="">
@@ -286,7 +286,7 @@
                 </td>
               </tr>
               <tr id="kuisioner-wawancara">
-                <td class="col-md-6" colspan="2">Kuesioner Wawancara<span class="text-danger"> *PDF (Maks. 2MB)</span>
+                <td class="col-md-6" colspan="2">Kuesioner Wawancara<span class="text-danger"> *PDF (Maks. 1MB)</span>
                 </td>
                 <td class="col-md-4" colspan="2">
                   <input type="file" class="form-control" name="UploadKuisioner" id="UploadKuisioner" placeholder="">
@@ -296,7 +296,7 @@
                 </td>
               </tr>
               <tr id="rekomendasi-ptsp">
-                <td class="col-md-6" colspan="2">Surat Rekomendasi Penelitian dari PTSP<span class="text-danger"> *PDF (Maks. 2MB)</span>
+                <td class="col-md-6" colspan="2">Surat Rekomendasi Penelitian dari PTSP<span class="text-danger"> *PDF (Maks. 1MB)</span>
                 </td>
                 <td class="col-md-4" colspan="2">
                   <input type="file" class="form-control" name="UploadRekomPtsp" id="UploadRekomPtsp" placeholder="">
@@ -306,7 +306,7 @@
                 </td>
               </tr>
               <tr id="izin-riset">
-                <td class="col-md-6" colspan="2">Izin Riset/Klirens Etik Riset<span class="text-danger"> *PDF (Maks. 2MB)</span>
+                <td class="col-md-6" colspan="2">Izin Riset/Klirens Etik Riset<span class="text-danger"> *PDF (Maks. 1MB)</span>
                 </td>
                 <td class="col-md-4" colspan="2">
                   <input type="file" class="form-control" name="UploadIzinRiset" id="UploadIzinRiset" placeholder="">
@@ -316,7 +316,7 @@
                 </td>
               </tr>
               <tr id="suket-penelitian">
-                <td class="col-md-6" colspan="2">Surat Keterangan Penelitian yang dikeluarkan oleh Direktorat Jenderal Politik dan Pemerintahan Umum Kementerian Dalam Negeri RI<span class="text-danger"> *PDF (Maks. 2MB)</span>
+                <td class="col-md-6" colspan="2">Surat Keterangan Penelitian yang dikeluarkan oleh Direktorat Jenderal Politik dan Pemerintahan Umum Kementerian Dalam Negeri RI<span class="text-danger"> *PDF (Maks. 1MB)</span>
                 </td>
                 <td class="col-md-4" colspan="2">
                   <input type="file" class="form-control" name="UploadKeteranganDirjen" id="UploadKeteranganDirjen" placeholder="">
@@ -326,7 +326,7 @@
                 </td>
               </tr>
               <tr id="surat-pernyataan">
-                <td class="col-md-6" colspan="2">Surat Pernyataan yang sudah ditandatangani (materai 10 ribu) akan menyerahkan laporan hasil penelitian beserta rekomendasi kebijakan dari hasil penelitian<span class="text-danger"> *PDF (Maks. 2MB)</span>
+                <td class="col-md-6" colspan="2">Surat Pernyataan yang sudah ditandatangani (materai 10 ribu) akan menyerahkan laporan hasil penelitian beserta rekomendasi kebijakan dari hasil penelitian<span class="text-danger"> *PDF (Maks. 1MB)</span>
                 </td>
                 <td class="col-md-4" colspan="2">
                   <input type="file" class="form-control" name="UploadPernyataanHasil" id="UploadPernyataanHasil" placeholder="">
@@ -643,9 +643,9 @@
   // ACTION UPDATE STATUS REVISI END
 
   $('input[type="file"]').on('change', function() {
-      var maxAllowedSize = 2 * 1024 * 1024; // 2MB
+      var maxAllowedSize = 1 * 1024 * 1024; // 1MB
       if (this.files[0] && this.files[0].size > maxAllowedSize) {
-          alert("Ukuran file terlalu besar! Maksimal upload adalah 2MB.");
+          alert("Ukuran file terlalu besar! Maksimal upload adalah 1MB.");
           this.value = "";
       }
   });

@@ -89,7 +89,7 @@
                                     </strong>
                                 </div>
                                 <div class="form-group">
-                                    <label>Upload Surat Permohonan (file PDF - Maksimal 2MB)<span class="text-danger"> *</span></label>
+                                    <label>Upload Surat Permohonan (file PDF - Maksimal 1MB)<span class="text-danger"> *</span></label>
                                     <br>
                                     <span class="text-danger">*Surat Permohonan KOP Instansi/Organisasi/Perguruan Tinggi/Sekolah</span>
                                     <br>
@@ -181,49 +181,49 @@
                                     </strong>
                                 </div>
                                 <div class="form-group">
-                                    <label>Upload KAK/Proposal Penelitian (file PDF - Maksimal 2MB)<span class="text-danger"> *</span></label><br>
+                                    <label>Upload KAK/Proposal Penelitian (file PDF - Maksimal 1MB)<span class="text-danger"> *</span></label><br>
                                     <input type="file" name="UploadKak" class="form-control" id="UploadKak" <?php if ($TujuanInformasi == 'Bertujuan untuk Penelitian') echo 'required'; ?>>
                                     <?= form_error('UploadKak') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Upload FC KTP/KITAS Peneliti Utama (file PDF - Maksimal 2MB)<span class="text-danger"> *</span></label><br>
+                                    <label>Upload FC KTP/KITAS Peneliti Utama (file PDF - Maksimal 1MB)<span class="text-danger"> *</span></label><br>
                                     <input type="file" name="UploadKartuIdentitas" class="form-control" id="UploadKartuIdentitas" <?php if ($TujuanInformasi == 'Bertujuan untuk Penelitian') echo 'required'; ?>>
                                     <?= form_error('UploadKartuIdentitas') ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Upload Surat keterangan Kaji Etik (file PDF - Maksimal 2MB)</label>
+                                    <label>Upload Surat keterangan Kaji Etik (file PDF - Maksimal 1MB)</label>
                                     <br>
                                     <span>*Penelitian dengan subjek manusia baik dari bidang kesehatan, epidemiologi atau klinik, maupun dari bidang pendidikan (termasuk pendidikan dini), serta bidang psikologi dan marketing</span>
                                     <br>
                                     <input type="file" name="UploadKeteranganKajiEtik" class="form-control" id="UploadKeteranganKajiEtik">
                                 </div>
                                 <div class="form-group">
-                                    <label>Upload Kuesioner Wawancara (file PDF - Maksimal 2MB)</label><br>
+                                    <label>Upload Kuesioner Wawancara (file PDF - Maksimal 1MB)</label><br>
                                     <input type="file" name="UploadKuisioner" class="form-control" id="UploadKuisioner">
                                 </div>
                                 <div class="form-group">
-                                    <label>Upload Surat Rekomendasi Penelitian dari PTSP (file PDF - Maksimal 2MB)</label>
+                                    <label>Upload Surat Rekomendasi Penelitian dari PTSP (file PDF - Maksimal 1MB)</label>
                                     <br>
                                     <span>*Penelitian bukan dalam rangka tugas akhir dan bukan bersumber dari anggaran APBN dan APBD</span>
                                     <br>
                                     <input type="file" name="UploadRekomPtsp" class="form-control" id="UploadRekomPtsp">
                                 </div>
                                 <div class="form-group">
-                                    <label>Upload Izin Riset/Klirens Etik Riset (file PDF - Maksimal 2MB)</label>
+                                    <label>Upload Izin Riset/Klirens Etik Riset (file PDF - Maksimal 1MB)</label>
                                     <br>
                                     <span>*Untuk Peneliti Pihak Asing yang akan melakukan kegiatan Riset di Indonesia</span>
                                     <br>
                                     <input type="file" name="UploadIzinRiset" class="form-control" id="UploadIzinRiset">
                                 </div>
                                 <div class="form-group">
-                                    <label>Upload Surat Keterangan Penelitian yang dikeluarkan oleh Direktorat Jenderal Politik dan Pemerintahan Umum Kementerian Dalam Negeri RI (file PDF - Maksimal 2MB)</label>
+                                    <label>Upload Surat Keterangan Penelitian yang dikeluarkan oleh Direktorat Jenderal Politik dan Pemerintahan Umum Kementerian Dalam Negeri RI (file PDF - Maksimal 1MB)</label>
                                     <br>
                                     <span>*Penelitian dengan lingkup Nasional/melibatkan lebih dari 1 provinsi</span>
                                     <br>
                                     <input type="file" name="UploadKeteranganDirjen" class="form-control" id="UploadKeteranganDirjen">
                                 </div>
                                 <div class="form-group">
-                                    <label>Menyerahkan Surat Pernyataan yang sudah ditandatangani (materai 10 ribu) akan menyerahkan laporan hasil penelitian beserta rekomendasi kebijakan dari hasil penelitian (file PDF - Maksimal 2MB)<span class="text-danger"> *</span></label>
+                                    <label>Menyerahkan Surat Pernyataan yang sudah ditandatangani (materai 10 ribu) akan menyerahkan laporan hasil penelitian beserta rekomendasi kebijakan dari hasil penelitian (file PDF - Maksimal 1MB)<span class="text-danger"> *</span></label>
                                     <a href="<?= base_url() . 'upload/dokumen/Surat-Pernyataan-Penelitian.doc'; ?>">
                                         <i class="fa fa-download"> (Download format)</i></a><br>
                                     <input type="file" name="UploadPernyataanHasil" class="form-control" id="UploadPernyataanHasil" <?php if ($TujuanInformasi == 'Bertujuan untuk Penelitian') echo 'required'; ?>>
@@ -270,9 +270,9 @@
 </script>
 <script>
     $('input[type="file"]').on('change', function() {
-        var maxAllowedSize = 2 * 1024 * 1024; // 2MB
+        var maxAllowedSize = 1 * 1024 * 1024; // 1MB
         if (this.files[0] && this.files[0].size > maxAllowedSize) {
-            alert("Ukuran file terlalu besar! Maksimal upload adalah 2MB.");
+            alert("Ukuran file terlalu besar! Maksimal upload adalah 1MB.");
             this.value = "";
         }
     });

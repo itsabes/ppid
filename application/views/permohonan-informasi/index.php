@@ -59,13 +59,13 @@
                                     <div class="form-group" id="groupAktaNotaris">
                                         <label for="upload_akta_notaris" id="labelAktaNotaris">Upload Akta Notaris Lembaga / Organisasi<span class="text-danger">*</span></label>
                                         <input type="file" name="upload_akta_notaris" class="form-control" id="upload_akta_notaris">
-                                        <small class="text-danger">Hanya file jpg, jpeg dan png (Maksimal 2MB)</small>
+                                        <small class="text-danger">Hanya file jpg, jpeg dan png (Maksimal 1MB)</small>
                                         <div id="invalid-upload_akta_notaris" class="invalid-feedback"></div>
                                     </div>
                                     <div class="form-group" id="groupSuratKuasa">
                                         <label for="upload_surat_kuasa" id="labelSuratKuasa">Upload Surat Kuasa<span class="text-danger">*</span></label>
                                         <input type="file" name="upload_surat_kuasa" class="form-control" id="upload_surat_kuasa">
-                                        <small class="text-danger">Hanya file jpg, jpeg dan png (Maksimal 2MB)</small>
+                                        <small class="text-danger">Hanya file jpg, jpeg dan png (Maksimal 1MB)</small>
                                         <div id="invalid-upload_surat_kuasa" class="invalid-feedback"></div>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                     <div class="form-group" id="groupKtp">
                                         <label for="upload_ktp" id="labelKtp"></label>
                                         <input type="file" name="upload_ktp" id="upload_ktp" class="form-control">
-                                        <small class="text-danger">Hanya file jpg, jpeg dan png (Maksimal 2MB)</small>
+                                        <small class="text-danger">Hanya file jpg, jpeg dan png (Maksimal 1MB)</small>
                                         <div id="invalid-upload_ktp" class="invalid-feedback"></div>
                                     </div>
                                     <div class="form-group">
@@ -244,9 +244,9 @@
     });
 
     $('input[type="file"]').on('change', function() {
-        var maxAllowedSize = 2 * 1024 * 1024; // 2MB
+        var maxAllowedSize = 1 * 1024 * 1024; // 1MB
         if (this.files[0] && this.files[0].size > maxAllowedSize) {
-            alert("Ukuran file terlalu besar! Maksimal upload adalah 2MB.");
+            alert("Ukuran file terlalu besar! Maksimal upload adalah 1MB.");
             this.value = "";
         }
     });
