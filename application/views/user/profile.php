@@ -110,7 +110,7 @@
 										<div class="col-sm-5">
 											<input type="file" name="Foto" id="Foto">
 											<input type="hidden" name="Foto" value="<?= $Foto; ?>">
-											<p class="help-block">Max. 1MB</p>
+											<p class="help-block">Maksimal file 2MB</p>
 										</div>
 									</div>
 									<div class="form-group">
@@ -165,4 +165,13 @@
 			x.type = "password";
 		}
 	}
+</script>
+<script>
+    $('input[type="file"]').on('change', function() {
+        var maxAllowedSize = 2 * 1024 * 1024; // 2MB
+        if (this.files[0] && this.files[0].size > maxAllowedSize) {
+            alert("Ukuran file terlalu besar! Maksimal upload adalah 2MB.");
+            this.value = "";
+        }
+    });
 </script>

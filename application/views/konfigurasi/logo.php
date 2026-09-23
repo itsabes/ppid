@@ -30,11 +30,13 @@
                         <div class="form-group col-md-6">
                             <label for="logo">Logo Website (Persegi panjang)</label>
                             <input type="file" id="logo" name="logo" class="form-control" <?= $disable; ?>>
+                            <small class="text-danger">Maksimal file 2MB</small>
                             <div><?= form_error('logo') ?></div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="icon">Icon Website (Kotak)</label>
                             <input type="file" id="icon" name="icon" class="form-control" <?= $disable; ?>>
+                            <small class="text-danger">Maksimal file 2MB</small>
                             <div><?= form_error('icon') ?></div>
                         </div>
                     </div>
@@ -43,3 +45,12 @@
         </div>
     </div>
 </section>
+<script>
+    $('input[type="file"]').on('change', function() {
+        var maxAllowedSize = 2 * 1024 * 1024; // 2MB
+        if (this.files[0] && this.files[0].size > maxAllowedSize) {
+            alert("Ukuran file terlalu besar! Maksimal upload adalah 2MB.");
+            this.value = "";
+        }
+    });
+</script>

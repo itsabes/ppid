@@ -90,6 +90,8 @@
                 -->
                         <input type="file" name="file">
                         <br>
+                        <small style="color:red;">Maksimal 2MB</small>
+                        <br>
                         <!--
                 -- BUat sebuah tombol submit untuk melakukan preview terlebih dahulu data yang akan di import
                 -->
@@ -234,4 +236,12 @@
     });
 
     //$('#data_pembbu').load('<?php echo base_url(); ?>belanja/ambil_data_outlet_session');
+
+    $('input[type="file"]').on('change', function() {
+        var maxAllowedSize = 2 * 1024 * 1024; // 2MB
+        if (this.files[0] && this.files[0].size > maxAllowedSize) {
+            alert("Ukuran file terlalu besar! Maksimal upload adalah 2MB.");
+            this.value = "";
+        }
+    });
 </script>

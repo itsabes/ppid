@@ -118,7 +118,7 @@
                         <tr class="file-upload">
                             <td class="col-md-5">File Upload
                                 <input type="file" name="FileUpload" class="form-control" id="FileUpload">
-                                <font color="red">hanya file yang ber-ekstensi pdf, doc, docx, xls, xlsx, jpg, jpeg, png</font>
+                                <font color="red">hanya file yang ber-ekstensi pdf, doc, docx, xls, xlsx, jpg, jpeg, png (Maksimal 2MB)</font>
                             </td>
                         </tr>
                         <tr class="file-link">
@@ -253,4 +253,12 @@
         $(".file-upload").hide();
         $(".file-link").show();
     }
+
+    $('input[type="file"]').on('change', function() {
+        var maxAllowedSize = 2 * 1024 * 1024; // 2MB
+        if (this.files[0] && this.files[0].size > maxAllowedSize) {
+            alert("Ukuran file terlalu besar! Maksimal upload adalah 2MB.");
+            this.value = "";
+        }
+    });
 </script>
