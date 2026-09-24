@@ -29,21 +29,23 @@ date_default_timezone_set('Asia/Jakarta');
 // $config['base_url'] = "http://" . $_SERVER['HTTP_HOST'] . str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 
 // deteksi skema protokol (http/https) termasuk untuk proxy/WAF
-$is_https = false;
 if (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'rsudsawahbesar.jakarta.go.id') !== false) {
-    $is_https = true; // Paksa HTTPS jika di server production
-} elseif (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
-    $is_https = true;
-} elseif (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) {
-    $is_https = true;
-} elseif (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
-    $is_https = true;
+    // Hardcode base_url untuk production karena WAF me-rewrite path /ppid/ menjadi / di dalam docker
+    $config['base_url'] = 'https://rsudsawahbesar.jakarta.go.id/ppid/';
+} else {
+    $is_https = false;
+    if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+        $is_https = true;
+    } elseif (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) {
+        $is_https = true;
+    } elseif (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+        $is_https = true;
+    }
+    $protocol = $is_https ? "https://" : "http://";
+
+    $config['base_url'] = $protocol . $_SERVER['HTTP_HOST'] 
+                        . str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 }
-$protocol = $is_https ? "https://" : "http://";
-
-
-$config['base_url'] = $protocol . $_SERVER['HTTP_HOST'] 
-                    . str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 
 
 /*
