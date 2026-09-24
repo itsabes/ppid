@@ -60,8 +60,12 @@ class Fixmenu extends CI_Controller
             }
         }
         
+        // Cari ID parent Rumah Data New (jika ada)
+        $rumah_data_new = $this->db->get_where('menu', ['name' => 'Rumah Data New'])->row();
+        $parent_rumah_data_new = $rumah_data_new ? $rumah_data_new->id : $parent_rumah_data;
+
         // Force add menu Rumah Data (IdTipe lainnya dari routes.php)
-        $menus = [
+        $menus_rumah_data = [
             21 => 'LHKPN',
             22 => 'Pedoman Pengelolaan Kepegawaian',
             23 => 'Regulasi',
@@ -76,6 +80,29 @@ class Fixmenu extends CI_Controller
             35 => 'Kalender Kegiatan',
             36 => 'Inventaris Aset',
             37 => 'Rencana Strategis',
+            42 => 'Statistik Permohonan Informasi'
+        ];
+
+        foreach ($menus_rumah_data as $id => $name) {
+            $link = 'content/data/' . $id;
+            $data_menu = [
+                'name'      => $name,
+                'link'      => $link,
+                'icon'      => 'fa fa-circle-o',
+                'is_active' => 1,
+                'is_parent' => $parent_rumah_data,
+                'pos'       => 1,
+                'aplikasi'  => '*',
+                'level'     => 'admin',
+                'urut'      => 99
+            ];
+            $this->db->insert('menu', $data_menu);
+            echo "Berhasil menambahkan menu: <b>" . $name . "</b> (" . $link . ")<br>";
+            $added++;
+        }
+
+        // Force add menu Rumah Data New
+        $menus_rumah_data_new = [
             51 => 'Penanggungjawab Program',
             52 => 'Rencana Kerja Operasional',
             53 => 'Neraca Keuangan',
@@ -85,30 +112,26 @@ class Fixmenu extends CI_Controller
             57 => 'Dokumen Pelaksanaan Anggaran',
             58 => 'Nilai Anggaran',
             59 => 'Informasi Keuangan Covid19',
-            42 => 'Statistik Permohonan Informasi',
             60 => 'Laporan Aduan Masyarakat',
             61 => 'DIPA RKA KL'
         ];
 
-        foreach ($menus as $id => $name) {
+        foreach ($menus_rumah_data_new as $id => $name) {
             $link = 'content/data/' . $id;
-            $exists = $this->db->get_where('menu', ['link' => $link])->num_rows();
-            if ($exists == 0) {
-                $data_menu = [
-                    'name'      => $name,
-                    'link'      => $link,
-                    'icon'      => 'fa fa-circle-o',
-                    'is_active' => 1,
-                    'is_parent' => $parent_rumah_data,
-                    'pos'       => 1,
-                    'aplikasi'  => '*',
-                    'level'     => 'admin',
-                    'urut'      => 99
-                ];
-                $this->db->insert('menu', $data_menu);
-                echo "Berhasil menambahkan menu: <b>" . $name . "</b> (" . $link . ")<br>";
-                $added++;
-            }
+            $data_menu = [
+                'name'      => $name,
+                'link'      => $link,
+                'icon'      => 'fa fa-circle-o',
+                'is_active' => 1,
+                'is_parent' => $parent_rumah_data_new,
+                'pos'       => 1,
+                'aplikasi'  => '*',
+                'level'     => 'admin',
+                'urut'      => 99
+            ];
+            $this->db->insert('menu', $data_menu);
+            echo "Berhasil menambahkan menu: <b>" . $name . "</b> (" . $link . ")<br>";
+            $added++;
         }
 
         echo "<br>Selesai. Total menu ditambahkan: " . $added;
