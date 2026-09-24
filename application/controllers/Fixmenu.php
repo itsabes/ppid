@@ -25,10 +25,8 @@ class Fixmenu extends CI_Controller
         $info_publik = $this->db->get_where('menu', ['name' => 'Informasi Publik'])->row();
         $parent_info_publik = $info_publik ? $info_publik->id : $parent_rumah_data;
 
-        // Hapus menu yang memiliki nama kosong akibat script sebelumnya
-        $this->db->query("DELETE FROM menu WHERE name = '' OR name IS NULL");
-        // Hapus content/data/6 yang nyasar (karena harusnya content/index/6)
-        $this->db->query("DELETE FROM menu WHERE link = 'content/data/6'");
+        // Delete all bad links first to ensure clean insertion
+        $this->db->query("DELETE FROM menu WHERE link LIKE 'content/index/%' OR link LIKE 'content/data/%'");
 
         $added = 0;
         
