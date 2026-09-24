@@ -30,7 +30,9 @@ date_default_timezone_set('Asia/Jakarta');
 
 // deteksi skema protokol (http/https) termasuk untuk proxy/WAF
 $is_https = false;
-if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+if (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'rsudsawahbesar.jakarta.go.id') !== false) {
+    $is_https = true; // Paksa HTTPS jika di server production
+} elseif (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
     $is_https = true;
 } elseif (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) {
     $is_https = true;
