@@ -28,9 +28,17 @@ date_default_timezone_set('Asia/Jakarta');
 
 // $config['base_url'] = "http://" . $_SERVER['HTTP_HOST'] . str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 
-// deteksi skema protokol (http/https)
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' 
-            || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+// deteksi skema protokol (http/https) termasuk untuk proxy/WAF
+$is_https = false;
+if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+    $is_https = true;
+} elseif (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) {
+    $is_https = true;
+} elseif (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+    $is_https = true;
+}
+$protocol = $is_https ? "https://" : "http://";
+
 
 $config['base_url'] = $protocol . $_SERVER['HTTP_HOST'] 
                     . str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
@@ -541,3 +549,11 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+/*
+|--------------------------------------------------------------------------
+| Permitted URI Chars
+|--------------------------------------------------------------------------
+| Added to allow comma (,) in URIs for uploaded file names.
+*/
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-,';
