@@ -25,37 +25,12 @@ class Fixmenu extends CI_Controller
         $info_publik = $this->db->get_where('menu', ['name' => 'Informasi Publik'])->row();
         $parent_info_publik = $info_publik ? $info_publik->id : $parent_rumah_data;
 
-        // Ambil semua tipe
-        $tipes = $this->db->get('tipe')->result();
-        
+        // Hapus menu yang memiliki nama kosong akibat script sebelumnya
+        $this->db->query("DELETE FROM menu WHERE name = '' OR name IS NULL");
+        // Hapus content/data/6 yang nyasar (karena harusnya content/index/6)
+        $this->db->query("DELETE FROM menu WHERE link = 'content/data/6'");
+
         $added = 0;
-        foreach ($tipes as $t) {
-            $link = ($t->IdTipe <= 5) ? 'content/index/' . $t->IdTipe : 'content/data/' . $t->IdTipe;
-            
-            // Cek apakah menu sudah ada
-            $exists = $this->db->get_where('menu', ['link' => $link])->num_rows();
-            if ($exists == 0) {
-                // Tentukan parent
-                $parent_id = ($t->IdTipe <= 5) ? $parent_info_publik : $parent_rumah_data;
-                
-                // Insert menu baru
-                $data_menu = [
-                    'name'      => $t->keterangan,
-                    'link'      => $link,
-                    'icon'      => 'fa fa-circle-o',
-                    'is_active' => 1,
-                    'is_parent' => $parent_id,
-                    'pos'       => 1, // backend
-                    'aplikasi'  => '*', // atau sesuaikan dengan aplikasi
-                    'level'     => 'admin', // hanya admin (atau '*')
-                    'urut'      => 99
-                ];
-                
-                $this->db->insert('menu', $data_menu);
-                echo "Berhasil menambahkan menu: <b>" . $t->keterangan . "</b> (" . $link . ")<br>";
-                $added++;
-            }
-        }
         
         // Force add menu Informasi Publik (IdTipe 1-4, 6)
         $info_publik_menus = [

@@ -33,12 +33,12 @@ class Content extends CI_Controller
     }
 
     // UNTUK DAFTAR INFORMASI PUBLIK BY TIPE
-    // Tipe 1 - 5
+    // Tipe 1 - 6
     // UNTUK ADMIN
     public function index($tipe)
     {
         if (
-            $tipe <= 5 &&
+            $tipe <= 6 &&
             $this->session->userdata('logged_in') != "" &&
             ($this->session->userdata('level') == "admin" or $this->session->userdata('level') == "operator")
         ) {
@@ -59,12 +59,12 @@ class Content extends CI_Controller
     }
 
     // UNTUK DAFTAR INFORMASI PUBLIK BY TIPE
-    // Tipe 1 - 5
+    // Tipe 1 - 6
     // UNTUK ADMIN
     public function upload($tipe)
     {
         if (
-            $tipe <= 5 &&
+            $tipe <= 6 &&
             $this->session->userdata('logged_in') != "" &&
             ($this->session->userdata('level') == "admin" or $this->session->userdata('level') == "operator")
         ) {
