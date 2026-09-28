@@ -585,6 +585,50 @@ class Content extends CI_Controller
     }
 
 
+    public function upload_image()
+    {
+        if (
+            $this->session->userdata('logged_in') != "" &&
+            ($this->session->userdata('level') == "admin" or $this->session->userdata('level') == "operator")
+        ) {
+            $config['upload_path']      = './upload/content/';
+            $config['allowed_types']    = 'jpeg|jpg|png|gif';
+            $config['max_size']         = '0';
+            $config['encrypt_name']     = TRUE;
+
+            $this->load->library('upload', $config);
+
+            if (!is_dir('./upload/content/')) {
+                mkdir('./upload/content/', 0777, true);
+            }
+
+            if ($this->upload->do_upload('upload')) {
+                $up_data = $this->upload->data();
+                $url = base_url('upload/content/' . $up_data['file_name']);
+                
+                $response = array(
+                    "uploaded" => 1,
+                    "fileName" => $up_data['file_name'],
+                    "url" => $url
+                );
+            } else {
+                $error = $this->upload->display_errors('', '');
+                $response = array(
+                    "uploaded" => 0,
+                    "error" => array(
+                        "message" => $error
+                    )
+                );
+            }
+            
+            header('Content-Type: application/json');
+            echo json_encode($response);
+        } else {
+            header('Content-Type: application/json');
+            echo json_encode(array("uploaded" => 0, "error" => array("message" => "Unauthorized")));
+        }
+    }
+
     // GET EDIT DATA
     public function edit($id = '')
     {

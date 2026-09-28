@@ -485,6 +485,7 @@ $config['csrf_exclude_uris'] = array(
     'home/submit_rating',
     'permohonaninformasi/store',
     'permohonaninformasi/getstatus',
+    'content/upload_image'
 );
 
 /*

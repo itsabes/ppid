@@ -72,7 +72,11 @@
     $(function() {
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
-        CKEDITOR.replace('IsiFormulir');
+        CKEDITOR.replace('IsiFormulir', {
+            filebrowserImageUploadUrl: '<?= base_url("content/upload_image") ?>',
+            uploadUrl: '<?= base_url("content/upload_image") ?>',
+            filebrowserUploadMethod: 'xhr'
+        });
 
         //$(".textarea").wysihtml5();
     });
