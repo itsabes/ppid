@@ -103,7 +103,8 @@
         CKEDITOR.replace('IsiContent', {
             filebrowserImageUploadUrl: '<?= base_url("content/upload_image") ?>',
             uploadUrl: '<?= base_url("content/upload_image") ?>',
-            filebrowserUploadMethod: 'xhr'
+            filebrowserUploadMethod: 'xhr',
+            removePlugins: 'easyimage,cloudservices'
         });
 
         //$(".textarea").wysihtml5();
